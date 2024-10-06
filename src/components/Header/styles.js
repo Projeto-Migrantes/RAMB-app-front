@@ -8,7 +8,7 @@ export const Container = styled(SafeAreaView)`
   align-items: center;
   justify-content: ${({ showBackButton }) =>
     showBackButton ? "space-between" : "center"};
-  padding: 10px 20px;
+  padding: 6px 20px ;
   border-bottom-right-radius: 50px;
 `;
 
