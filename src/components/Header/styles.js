@@ -6,7 +6,8 @@ export const Container = styled(SafeAreaView)`
   background-color: ${({ theme }) => theme.Colors.Blue};
   flex-direction: row;
   align-items: center;
-  justify-content: ${({ showBackButton }) => (showBackButton ? 'space-between' : 'center')};
+  justify-content: ${({ showBackButton }) =>
+    showBackButton ? "space-between" : "center"};
   padding: 10px 20px;
   border-bottom-right-radius: 50px;
 `;
