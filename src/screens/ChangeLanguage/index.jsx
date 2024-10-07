@@ -4,6 +4,7 @@ import { Button } from "@components/Button";
 import { useNavigation } from "@react-navigation/native";
 import { View } from "react-native";
 import theme from "@theme/index";
+import { TitleWithDescription } from "@components/TitleWithDescription";
 
 export function ChangeLanguage() {
   const navigation = useNavigation();
@@ -16,7 +17,9 @@ export function ChangeLanguage() {
     <View style={{ flex: 1, backgroundColor: theme.Colors.White }}>
       <Header />
       <Container>
-        <Title>Página de Mudar o idioma</Title>
+        <TitleWithDescription
+          title="Escolha o seu Idioma:"
+        />
         <Button
           variant="primary"
           title="Escolher"
