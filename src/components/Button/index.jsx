@@ -8,4 +8,3 @@ export function Button({ variant = "primary", title, ...props }) {
   );
 }
 
-//isso é um teste
