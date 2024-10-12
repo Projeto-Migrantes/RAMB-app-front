@@ -66,6 +66,6 @@ export function Contact() {
         <Button variant="primary" title="Enviar" />
       </Container>
     </View>
-    
+
   );
 }

@@ -4,7 +4,7 @@ import { Contact } from "@screens/Contact";
 import { Help } from "@screens/Help";
 import { Home } from "@screens/Home";
 import { Institution } from "@screens/Institution";
-import { InstitutionDetails } from "@screens/Institution/Institution Details";
+import { InstitutionDetails } from "@screens/Institution/InstitutionDetails";
 import { Login } from "@screens/Login";
 import { Profile } from "@screens/Profile";
 
@@ -21,10 +21,9 @@ export function AppRoutes() {
       <Screen name="help" component={Help} />
       <Screen name="home" component={Home} />
       <Screen name="institution" component={Institution} />
-      <Screen name="institutionDetails" component={InstitutionDetails} />
+      <Screen name="InstitutionDetails" component={InstitutionDetails} />
       <Screen name="contact" component={Contact} />
       <Screen name="profile" component={Profile} />
-
     </Navigator>
   );
 }
