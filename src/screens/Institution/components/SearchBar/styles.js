@@ -4,6 +4,7 @@ import styled, { css } from "styled-components/native";
 import AntDesign from "@expo/vector-icons/AntDesign";
 
 export const SearchContainer = styled.View`
+  width: 100%;
   flex-direction: row;
   align-items: center;
   border-width: 1px;
