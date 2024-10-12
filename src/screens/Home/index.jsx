@@ -103,6 +103,7 @@ export function Home() {
             )}
             numColumns={2}
             showsVerticalScrollIndicator={false}
+            contentContainerStyle={{ paddingBottom: 20 }}
           />
         </Content>
       </Container>
