@@ -6,10 +6,11 @@ import {
   Container, 
   Label, 
   CommonInput, 
-  MessageInput 
+  MessageInput
 } from "./styles";
 import { TitleWithIcon } from "@components/TitleWithIcon";
 import AntDesign from "@expo/vector-icons/AntDesign";
+import { ScrollView} from "react-native";
 
 export function Contact() {
   const [name, setName] = useState("");
@@ -19,9 +20,9 @@ export function Contact() {
   const [message, setMessage] = useState("");
 
   return (
-    
+<ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+<Header showBackButton />
     <Container>
-      <Header showBackButton />
       <TitleWithIcon
         title="Entre em Contato"
         icon={<AntDesign name="contacts" size={26} color={theme.Colors.Purple} />}
@@ -65,6 +66,7 @@ export function Contact() {
 
       <Button variant="primary" title="Enviar" />
     </Container>
+    </ScrollView>
   );
 }
 

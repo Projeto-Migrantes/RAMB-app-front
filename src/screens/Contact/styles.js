@@ -4,7 +4,6 @@ import { TextInput } from "react-native";
 export const Container = styled.View`
   flex: 1;
   align-items: center;
-  justify-content: center;
   justify-content: flex-start;
   background-color: ${({ theme }) => theme.Colors.White};
   padding: 20px;
@@ -28,6 +27,10 @@ export const CommonInput = styled(TextInput)`
 `;
 
 export const MessageInput = styled(CommonInput)`
-  padding: 50px;
-  border-radius: 12px
+  width: 98%;
+  border-width: 1px;
+  padding: 10px;
+  margin-bottom: 100px;
+  border-radius: 12px;
+  height: 120px; 
 `;
