@@ -30,7 +30,7 @@ export function Home() {
     navigation.navigate("changeLanguage");
   }
   function handleLink() {
-    const url = "https://www.google.com.br";
+    const url = "https://api-upload-download-production.up.railway.app/download/mockup.pdf";
     Linking.openURL(url);
   }
   const MenuItens = [
