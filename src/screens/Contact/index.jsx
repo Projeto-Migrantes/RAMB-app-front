@@ -10,7 +10,7 @@ import {
 } from "./styles";
 import { TitleWithIcon } from "@components/TitleWithIcon";
 import AntDesign from "@expo/vector-icons/AntDesign";
-import { ScrollView} from "react-native";
+import { ScrollView } from "react-native";
 
 export function Contact() {
   const [name, setName] = useState("");
