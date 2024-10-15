@@ -10,9 +10,12 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { ButtonMenu } from "./components/ButtonMenu";
+import { useTranslation } from "react-i18next";
+import "@utils/i18n";
 
 export function Home() {
   const navigation = useNavigation();
+  const { t, i18n } = useTranslation();
 
   function handleInstitution() {
     navigation.navigate("institution");
@@ -36,7 +39,7 @@ export function Home() {
   const MenuItens = [
     {
       id: 1,
-      title: "Instituições de Apoio",
+      title: `${t("Instituições de Apoio")}`,
       icon: (
         <Ionicons
           name="business-outline"
@@ -48,19 +51,19 @@ export function Home() {
     },
     {
       id: 2,
-      title: "Manual Migrante",
+      title: `${t("Manual Migrante")}`,
       icon: <AntDesign name="book" size={30} color={theme.Colors.Purple} />,
       function: handleLink,
     },
     {
       id: 3,
-      title: "Entre em Contato",
+      title: `${t("Entre em Contato")}`,
       icon: <AntDesign name="contacts" size={30} color={theme.Colors.Purple} />,
       function: handleContact,
     },
     {
       id: 4,
-      title: "Postos",
+      title: `${t("Postos")}`,
       icon: (
         <FontAwesome5 name="building" size={30} color={theme.Colors.Purple} />
       ),
@@ -68,7 +71,7 @@ export function Home() {
     },
     {
       id: 5,
-      title: "Idioma",
+      title: `${t("Idioma")}`,
       icon: (
         <MaterialIcons name="translate" size={30} color={theme.Colors.Purple} />
       ),
@@ -76,7 +79,7 @@ export function Home() {
     },
     {
       id: 6,
-      title: "Perfil",
+      title: `${t("Perfil")}`,
       icon: <AntDesign name="contacts" size={30} color={theme.Colors.Purple} />,
       function: handleProfile,
     },
@@ -87,8 +90,8 @@ export function Home() {
       <Header />
       <Container>
         <TitleWithDescription
-          title="Seja bem vindo(a)!"
-          description="Plataforma de Apoio ao Migrante na Bahia"
+          title={t("Seja bem vindo(a)!")}
+          description={t("Plataforma de Apoio ao Migrante na Bahia")}
         />
         <Content>
           <FlatList

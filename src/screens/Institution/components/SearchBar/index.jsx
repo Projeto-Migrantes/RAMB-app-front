@@ -1,9 +1,9 @@
 import { Icon, SearchContainer, SearchInput } from "./styles";
 
-export function SearchBar() {
+export function SearchBar({ placeholder, ...props }) {
   return (
     <SearchContainer>
-      <SearchInput placeholder="Pesquisar" />
+      <SearchInput placeholder={placeholder} {...props} />
       <Icon />
     </SearchContainer>
   );

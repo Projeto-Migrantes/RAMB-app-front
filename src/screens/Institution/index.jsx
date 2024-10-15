@@ -7,6 +7,8 @@ import { Container } from "./styles";
 import { SearchBar } from "./components/SearchBar";
 import { CardInstitution } from "./components/CardInstitution";
 import { useNavigation } from "@react-navigation/native";
+import "@utils/i18n";
+import { useTranslation } from "react-i18next";
 
 const organizations = [
   {
@@ -47,6 +49,7 @@ const organizations = [
 ];
 
 export function Institution() {
+  const { t, i18n } = useTranslation();
   const navigation = useNavigation();
   function handleInstitutionDetails() {
     navigation.navigate("InstitutionDetails");
@@ -55,7 +58,7 @@ export function Institution() {
     <View style={{ flex: 1, backgroundColor: theme.Colors.White }}>
       <Header showBackButton />
       <TitleWithIcon
-        title="Instituições de Apoio"
+        title={t("Instituições de Apoio")}
         icon={
           <Ionicons
             name="business-sharp"
@@ -65,7 +68,7 @@ export function Institution() {
         }
       />
       <Container>
-        <SearchBar />
+        <SearchBar placeholder={t("Pesquisar")} />
         <FlatList
           data={organizations}
           keyExtractor={(item) => item.id}

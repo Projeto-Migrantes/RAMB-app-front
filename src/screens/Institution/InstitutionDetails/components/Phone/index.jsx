@@ -7,8 +7,11 @@ import {
 import theme from "@theme/index";
 import { Linking, TouchableOpacity } from "react-native";
 import Feather from "@expo/vector-icons/Feather";
+import { useTranslation } from "react-i18next";
+import "@utils/i18n";
 
 export function Phone({ phone }) {
+  const { t, i18n } = useTranslation();
   const handlePress = () => {
     const url = `tel:${phone}`;
     Linking.openURL(url);
@@ -29,7 +32,7 @@ export function Phone({ phone }) {
     <Container>
       <TitleContainer>
         <Feather name="phone" size={20} color={theme.Colors.Blue} />
-        <TextTitle>Telefone</TextTitle>
+        <TextTitle>{t("Telefone")}</TextTitle>
       </TitleContainer>
       <TouchableOpacity onPress={handlePress}>
         <TextDescription>{formatPhoneNumber(phone)}</TextDescription>
