@@ -5,7 +5,10 @@ import { useNavigation } from "@react-navigation/native";
 import { View } from "react-native";
 import theme from "@theme/index";
 import { TitleWithDescription } from "@components/TitleWithDescription";
-
+import FlagBrazil from "@assets/BrazilFlag.svg";
+import FlagSpaim from "@assets/SpainFlag.svg";
+import FlagUsa from "@assets/UsaFlag.svg";
+import FlagFrance from "@assets/FranceFlag.svg";
 export function ChangeLanguage() {
   const navigation = useNavigation();
 
@@ -18,7 +21,7 @@ export function ChangeLanguage() {
       <Header />
       <Container>
         <TitleWithDescription
-          title="Escolha o seu Idioma:"
+          title="Escolha o seu idioma:"
         />
         <Button
           variant="primary"
