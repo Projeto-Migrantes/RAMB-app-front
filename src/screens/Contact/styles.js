@@ -1,4 +1,4 @@
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
 import { TextInput } from "react-native";
 
 export const Container = styled.View`
@@ -10,27 +10,38 @@ export const Container = styled.View`
 `;
 
 export const Label = styled.Text`
-  font-size: ${({ theme }) => theme.Font_Size.SM}px;
-  color: ${({ theme }) => theme.Colors.Black};
-  margin-bottom: 5px;
+
+${({ theme }) => css`
+    color: ${theme.Colors.Black};
+    font-family: ${theme.Font_Family.Regular};
+    font-size: ${theme.Font_Size.SM}px;
+  `};
   align-self: flex-start;
-  padding-left: 12px;
+  padding-left: 16px;
 `;
 
 export const CommonInput = styled(TextInput)`
-  width: 98%;
+  width: 100%;
   border-width: 1px;
-  border-color: ${({ theme }) => theme.Colors.Blue};
-  padding: 8px;
+  padding: 8px 0px 8px 16px;
   margin-bottom: 20px;
   border-radius: 999px;
+
+  ${({ theme }) => css`
+    border-color: ${theme.Colors.Blue};
+    color: ${theme.Colors.Gray_700};
+    background-color: ${theme.Colors.White};
+    font-family: ${theme.Font_Family.Regular};
+    font-size: ${theme.Font_Size.SM}px;
+  `};
 `;
 
 export const MessageInput = styled(CommonInput)`
   width: 98%;
   border-width: 1px;
   padding: 10px;
-  margin-bottom: 100px;
+  margin-bottom: 16px;
   border-radius: 12px;
-  height: 120px; 
+  height: 120px;
+  text-align-vertical: top;
 `;
