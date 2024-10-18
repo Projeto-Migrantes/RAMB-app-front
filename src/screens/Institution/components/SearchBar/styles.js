@@ -11,7 +11,6 @@ export const SearchContainer = styled.View`
   border-color: ${({ theme }) => theme.Colors.Blue};
   border-radius: 999px;
   padding: 5px 20px;
-  margin: 10px;
 `;
 
 export const SearchInput = styled(TextInput)`
