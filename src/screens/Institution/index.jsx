@@ -1,14 +1,16 @@
 import { Header } from "@components/Header";
 import theme from "@theme/index";
-import { FlatList, View } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 import { TitleWithIcon } from "@components/TitleWithIcon";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { Container } from "./styles";
+import { Container, Filter } from "./styles";
 import { SearchBar } from "./components/SearchBar";
 import { CardInstitution } from "./components/CardInstitution";
 import { useNavigation } from "@react-navigation/native";
 import "@utils/i18n";
 import { useTranslation } from "react-i18next";
+import DropDownPicker from "react-native-dropdown-picker";
+import { useEffect, useState } from "react";
 
 const organizations = [
   {
@@ -54,6 +56,22 @@ export function Institution() {
   function handleInstitutionDetails() {
     navigation.navigate("InstitutionDetails");
   }
+
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState([]);
+  const [items, setItems] = useState([
+    { label: "Todas as Categorias", value: "all" },
+    { label: "Apple", value: "apple" },
+    { label: "Banana", value: "banana" },
+    { label: "Pear", value: "pear" },
+  ]);
+
+  // useEffect(() => {
+  //   if (value.includes("all") && value.length !== items.length) {
+  //     setValue(items.map(item => item.value));
+  //   }
+  // }, [value, items]);
+
   return (
     <View style={{ flex: 1, backgroundColor: theme.Colors.White }}>
       <Header showBackButton />
@@ -69,6 +87,38 @@ export function Institution() {
       />
       <Container>
         <SearchBar placeholder={t("Pesquisar")} />
+        <Filter
+          open={open}
+          value={value}
+          items={items}
+          setOpen={setOpen}
+          setValue={setValue}
+          setItems={setItems}
+          placeholder={t("Selecionar tipo de Instituição")}
+          placeholderStyle={{
+            color: theme.Colors.Gray_700,
+            fontFamily: theme.Font_Family.Regular,
+            fontSize: 18,
+          }}
+          dropDownContainerStyle={{
+            backgroundColor: theme.Colors.Gray_500,
+            fontFamily: theme.Font_Family.Regular,
+            borderWidth: 0,
+            borderRadius: 0,
+          }}
+          arrowIconStyle={{
+            tintColor: theme.Colors.Blue,
+          }}
+          selectedItemLabelStyle={{
+            fontFamily: theme.Font_Family.Bold,
+            color: theme.Colors.Blue,
+          }}
+          labelStyle={{
+            fontFamily: theme.Font_Family.Regular,
+            fontSize: 16,
+            color: theme.Colors.Black,
+          }}
+        />
         <FlatList
           data={organizations}
           keyExtractor={(item) => item.id}
