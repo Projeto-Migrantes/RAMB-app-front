@@ -10,7 +10,7 @@ align-items: center;
 background-color: ${({ theme }) => theme.Colors.White};  
 
 
-border-width: 2px;
+border-width: 1px;
 border-color: ${({ theme }) => theme.Colors.Blue};
 
 
