@@ -1,21 +1,24 @@
 import { Container, Title } from "./styles";
-import { Image, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 
-export function ButtonLanguage({ title, imgSrc, accessibilityLabel, ...props }) {
+export function ButtonLanguage({ title, imgSrc: SvgIcon, accessibilityLabel, ...props }) {
   return (
     <Container {...props} style={styles.buttonSpacing}>
-      <Image 
-        source={imgSrc} 
-        accessibilityLabel={accessibilityLabel}
-        style={{ width: 24, height: 24 }} 
+      
+      <SvgIcon 
+        width={24} 
+        height={24} 
+        accessibilityLabel={accessibilityLabel} 
       />
       <Title>{title}</Title>
     </Container>
+    
   );
 }
 
 const styles = StyleSheet.create({
   buttonSpacing: {
     marginBottom: 15,
+    
   },
 });
