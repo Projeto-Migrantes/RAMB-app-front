@@ -1,10 +1,8 @@
 import { Header } from "@components/Header";
 import theme from "@theme/index";
-import { ScrollView, Text, View } from "react-native";
+import { ScrollView, View } from "react-native";
 import { TitleWithDescription } from "@components/TitleWithDescription";
-import { Container, Title } from "./styles";
-import { TitleUnderLine } from "./components/TitleUnderLine";
-import { CardDescription } from "./components/CardDescription";
+import { Container } from "./styles";
 import { Post } from "./components/Post";
 import { useTranslation } from "react-i18next";
 import "@utils/i18n";

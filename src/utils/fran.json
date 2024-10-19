@@ -20,7 +20,13 @@
     "Telefone": "Téléphone",
     "E-mail": "E-mail",
     "Site": "Site Web",
+    "Horário de Funcionamento": "Heures d'ouverture",
+    "Serviços Oferecidos": "Services Offerts",
+    "Custo do Serviço": "Coût du Service",
+    "Público Alvo": "Public Cible",
+    "Idioma falado pela Equipe": "Langue parlée par l'équipe",
     "Selecionar tipo de Instituição": "Sélectionner le type d'institution",
+
 
     "Entre em contato com um dos postos de atendimento": "Contactez l'un des postes de service"
   }
