@@ -17,7 +17,8 @@ border-color: ${({ theme }) => theme.Colors.Blue};
 flex-direction: row;
   justify-content: flex-start; 
   align-items: center;
-  padding-left: 60px; /*centraliza tudo horizontalmente*/ 
+  padding-left: 80px; /*centraliza tudo horizontalmente*/ 
+  margin-bottom: 20px
 `;
 
 export const Title = styled.Text`
@@ -26,7 +27,7 @@ color: ${({ theme }) => theme.Colors.Blue};
 font-family: ${({ theme }) => theme.Font_Family.Bold};
 line-height: ${({ theme }) => theme.Font_Size.LG * 2.0}px; 
 
-margin-left: 20px;/*move horizontalmentesomente o texto*/
+margin-left: 12px;/*move horizontalmente somente o texto*/
 text-align: center;
 display: flex;
  justify-content: center;
