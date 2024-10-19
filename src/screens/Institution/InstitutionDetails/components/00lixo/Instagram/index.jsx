@@ -9,11 +9,7 @@ import { Linking, TouchableOpacity } from "react-native";
 import AntDesign from "@expo/vector-icons/AntDesign";
 
 export function Instagram({ user }) {
-  const sanitizedUser = user.replace(/^@/, "");
-  const handlePress = () => {
-    const url = `https://www.instagram.com/${sanitizedUser}`;
-    Linking.openURL(url);
-  };
+
 
   return (
     <Container>

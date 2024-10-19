@@ -1,6 +1,6 @@
 import { Header } from "@components/Header";
 import theme from "@theme/index";
-import { FlatList, StyleSheet, View } from "react-native";
+import { FlatList, View } from "react-native";
 import { TitleWithIcon } from "@components/TitleWithIcon";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Container, Filter } from "./styles";
@@ -9,8 +9,7 @@ import { CardInstitution } from "./components/CardInstitution";
 import { useNavigation } from "@react-navigation/native";
 import "@utils/i18n";
 import { useTranslation } from "react-i18next";
-import DropDownPicker from "react-native-dropdown-picker";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const organizations = [
   {
@@ -61,16 +60,23 @@ export function Institution() {
   const [value, setValue] = useState([]);
   const [items, setItems] = useState([
     { label: "Todas as Categorias", value: "all" },
-    { label: "Apple", value: "apple" },
-    { label: "Banana", value: "banana" },
-    { label: "Pear", value: "pear" },
+    { label: "Agência Governamental", value: "Agência Governamental" },
+    { label: "Delegacia de Migração", value: "Delegacia de Migração" },
+    { label: "Centro de Atenção", value: "Centro de Atenção" },
+    {
+      label: "Sociedade Civil Organizada",
+      value: "Sociedade Civil Organizada",
+    },
+    { label: "Organização Internacional", value: "Organização Internacional" },
+    { label: "Instituição Religiosa", value: "Instituição Religiosa" },
+    { label: "Instituição de Ensino", value: "Instituição de Ensino" },
+    {
+      label: "Procuradoria / Defensoria Pública",
+      value: "Procuradoria / Defensoria Pública",
+    },
+    { label: "Tradutores Juramentos", value: "Tradutores Juramentos" },
+    { label: "Outros", value: "Outros" },
   ]);
-
-  // useEffect(() => {
-  //   if (value.includes("all") && value.length !== items.length) {
-  //     setValue(items.map(item => item.value));
-  //   }
-  // }, [value, items]);
 
   return (
     <View style={{ flex: 1, backgroundColor: theme.Colors.White }}>

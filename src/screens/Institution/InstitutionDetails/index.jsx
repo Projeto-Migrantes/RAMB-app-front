@@ -1,6 +1,6 @@
 import { Header } from "@components/Header";
 import theme from "@theme/index";
-import { Image, ScrollView, Text, View } from "react-native";
+import { ScrollView, View } from "react-native";
 import {
   Container,
   Content,
@@ -11,13 +11,12 @@ import {
   TextTitle,
 } from "./styles";
 import Img from "@assets/test.png";
-import { Location } from "./components/Location";
-import { Phone } from "./components/Phone";
-import { Email } from "./components/Email";
-import { Site } from "./components/Site";
-import { Instagram } from "./components/Instagram";
+import { BaseLink } from "./components/BaseLinks";
+import { useTranslation } from "react-i18next";
+import "@utils/i18n";
 
 export function InstitutionDetails() {
+  const { t, i18n } = useTranslation();
   return (
     <View style={{ flex: 1, backgroundColor: theme.Colors.White }}>
       <Header showBackButton />
@@ -35,14 +34,58 @@ export function InstitutionDetails() {
             asdsdf sdfit amet consectetur. Nunc ut proin tristique
           </TextDescription>
           <Informartion>
-            <Location
-              link="https://google.com.br"
+            <BaseLink
+              variant="location"
+              title={t("Localização")}
               description="Unifacs - Campus Tancredo Neves - Av. Tancredo Neves, 2131 - Caminho das Árvores, Salvador - BA, 41820-021"
+              link="https://google.com.br"
             />
-            <Phone phone="72991672506" />
-            <Email email="teste@gmail.com" />
-            <Site link="https://www.unifacs.com.br" />
-            <Instagram user="@centrodeservicoaomigrante" />
+            <BaseLink
+              variant="hour"
+              title={t("Horário de Funcionamento")}
+              description="Segunda a Sexta, 9h às 18h"
+            />
+            <BaseLink
+              variant="phone"
+              title={t("Telefone")}
+              description="71991672506"
+            />
+            <BaseLink
+              variant="email"
+              title={t("E-mail")}
+              description="seuemail@exemplo.com"
+            />
+            <BaseLink
+              variant="services"
+              title={t("Serviços Oferecidos")}
+              description="Apoio Psicológico, Apoio Jurídico, Atendimento Social"
+            />
+            <BaseLink
+              variant="price"
+              title={t("Custo do Serviço")}
+              description="Gratuito"
+            />
+            <BaseLink
+              variant="group"
+              title={t("Público Alvo")}
+              description="Crianças e adolescentes"
+            />
+
+            <BaseLink
+              variant="language"
+              title={t("Idioma falado pela Equipe")}
+              description="português e inglês"
+            />
+            <BaseLink
+              variant="site"
+              title={t("Site")}
+              description="https://github.com/siquara"
+            />
+            <BaseLink
+              variant="instagram"
+              title="Instagram"
+              description="@seu_usuario"
+            />
           </Informartion>
         </Container>
       </ScrollView>

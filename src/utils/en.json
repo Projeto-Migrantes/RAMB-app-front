@@ -20,6 +20,13 @@
     "Telefone": "Phone",
     "E-mail": "Email",
     "Site": "Website",
-    "Selecionar tipo de Instituição": "Select type of Institution"
+    "Horário de Funcionamento": "Opening Hours",
+    "Serviços Oferecidos": "Services Offered",
+    "Custo do Serviço": "Service Cost",
+    "Público Alvo": "Target Audience",
+    "Idioma falado pela Equipe": "Language Spoken by the Team",
+    "Selecionar tipo de Instituição": "Select type of Institution",
+
+    "Entre em contato com um dos postos de atendimento": "Contact one of the service desks"
   }
 }
