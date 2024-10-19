@@ -23,7 +23,9 @@ export function Login() {
       <Header showBackButton />
       <TitleWithDescription
         title="Login"
-        description={t("Use login e senha fornecidos pelo posto de atendimento.")}
+        description={t(
+          "Use login e senha fornecidos pelo posto de atendimento."
+        )}
       />
       <Container>
         <Button variant="primary" title={t("Entrar")} onPress={handleHome} />
