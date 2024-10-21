@@ -2,6 +2,7 @@ import { Header } from "@components/Header";
 import { Container, Title, TypeWriterStyled } from "./styles";
 import { Button } from "@components/Button";
 import { ButtonLanguage } from "@components/ButtonLanguage";
+import { ButtonLanguageOnPress } from "@components/ButtonLanguageOnPress";
 import { useNavigation } from "@react-navigation/native";
 import { View } from "react-native";
 import theme from "@theme/index";
@@ -44,7 +45,7 @@ export function ChangeLanguage() {
         </TypeWriterStyled>
         <ButtonLanguage
           title="Português"
-          onPress={handleChangeScreen}
+          onPress={ButtonLanguageOnPress}
           imgSrc={FlagBrazil}
         />
         <ButtonLanguage
