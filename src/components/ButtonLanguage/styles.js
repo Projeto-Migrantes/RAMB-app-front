@@ -17,7 +17,7 @@ border-color: ${({ theme }) => theme.Colors.Blue};
 flex-direction: row;
   justify-content: flex-start; 
   align-items: center;
-  padding-left: 80px; /*centraliza tudo horizontalmente*/ 
+  padding-left: 80px; /*centraliza tudo horizontalmente*/
   margin-bottom: 20px
 `;
 
@@ -26,7 +26,7 @@ font-size: ${({ theme }) => theme.Font_Size.LG}px;
 color: ${({ theme }) => theme.Colors.Blue};
 font-family: ${({ theme }) => theme.Font_Family.Bold};
 line-height: ${({ theme }) => theme.Font_Size.LG * 2.0}px; 
-
+  
 margin-left: 12px;/*move horizontalmente somente o texto*/
 text-align: center;
 display: flex;
