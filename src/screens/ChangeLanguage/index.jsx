@@ -19,12 +19,13 @@ export function ChangeLanguage() {
   function handleChangeScreen() {
     navigation.navigate("login");
   }
-  function MudaCor(titulo,fundo) {
-    const [cor, setCor] = useState('blue');
-    setCor(cor === 'white' ? 'blue' : 'white');
-   //color: ${({ theme }) => theme.Colors.White}; background-color: ${({ theme }) => theme.Colors.Blue};
-
-  }
+ 
+    const alterarCor = (cor) => {
+      color = cor
+      
+    };
+  
+  
   const texts = [
     "Escolha seu Idioma",
     "Choose your Language",
@@ -50,22 +51,22 @@ export function ChangeLanguage() {
         </TypeWriterStyled>
         <ButtonLanguage
           title="Português"
-          onPress={MudaCor} 
+          onPress={alterarCor} 
           imgSrc={FlagBrazil}
         />
         <ButtonLanguage
           title="English"
-          onPress={MudaCor}
+          onPress={alterarCor(Blue)}
           imgSrc={FlagUsa}
         />
         <ButtonLanguage
           title="Français"
-          onPress={MudaCor}    
+          onPress={alterarCor}    
           imgSrc={FlagFrance}
         />
         <ButtonLanguage
           title="Español"
-          onPress ={MudaCor}
+          onPress ={alterarCor}
           imgSrc={FlagSpain}
         />
 
