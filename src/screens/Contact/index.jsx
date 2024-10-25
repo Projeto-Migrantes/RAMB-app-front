@@ -1,18 +1,17 @@
 import { Button } from "@components/Button";
 import { Header } from "@components/Header";
 import theme from "@theme/index";
-import { useState } from "react";
 import { Container, Label, CommonInput, MessageInput } from "./styles";
 import { TitleWithIcon } from "@components/TitleWithIcon";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { ScrollView, View } from "react-native";
+import { useForm, Controller } from "react-hook-form";
 
 export function Contact() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState("");
+  const { control, handleSubmit, formState: { errors } } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+  };
 
   return (
     <View style={{ flex: 1, backgroundColor: theme.Colors.White }}>
@@ -31,42 +30,87 @@ export function Contact() {
           />
 
           <Label>Nome</Label>
-          <CommonInput
-            value={name}
-            onChangeText={setName}
-            placeholder="Digite aqui"
+          <Controller
+            control={control}
+            name="name"
+            rules={{ required: true }}
+            render={({ field: { onChange, onBlur, value } }) => (
+              <CommonInput
+                placeholder="Digite aqui"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+              />
+            )}
           />
+          {errors.name && <Label style={{ color: 'red' }}>Campo obrigatório</Label>}
 
           <Label>Email</Label>
-          <CommonInput
-            value={email}
-            onChangeText={setEmail}
-            placeholder="Digite aqui"
+          <Controller
+            control={control}
+            name="email"
+            rules={{ required: true }}
+            render={({ field: { onChange, onBlur, value } }) => (
+              <CommonInput
+                placeholder="Digite aqui"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+              />
+            )}
           />
+          {errors.email && <Label style={{ color: 'red' }}>Campo obrigatório</Label>}
 
           <Label>Telefone</Label>
-          <CommonInput
-            value={phone}
-            onChangeText={setPhone}
-            placeholder="Digite aqui"
+          <Controller
+            control={control}
+            name="phone"
+            rules={{ required: true }}
+            render={({ field: { onChange, onBlur, value } }) => (
+              <CommonInput
+                placeholder="Digite aqui"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+              />
+            )}
           />
+          {errors.phone && <Label style={{ color: 'red' }}>Campo obrigatório</Label>}
 
           <Label>Assunto</Label>
-          <CommonInput
-            value={subject}
-            onChangeText={setSubject}
-            placeholder="Digite aqui"
+          <Controller
+            control={control}
+            name="subject"
+            rules={{ required: true }}
+            render={({ field: { onChange, onBlur, value } }) => (
+              <CommonInput
+                placeholder="Digite aqui"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+              />
+            )}
           />
+          {errors.subject && <Label style={{ color: 'red' }}>Campo obrigatório</Label>}
 
           <Label>Mensagem</Label>
-          <MessageInput
-            value={message}
-            onChangeText={setMessage}
-            placeholder="Digite aqui"
-            multiline
+          <Controller
+            control={control}
+            name="message"
+            rules={{ required: true }}
+            render={({ field: { onChange, onBlur, value } }) => (
+              <MessageInput
+                placeholder="Digite aqui"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+                multiline
+              />
+            )}
           />
+          {errors.message && <Label style={{ color: 'red' }}>Campo obrigatório</Label>}
 
-          <Button variant="primary" title="Enviar" />
+          <Button variant="primary" title="Enviar" onPress={handleSubmit(onSubmit)} />
         </Container>
       </ScrollView>
     </View>
