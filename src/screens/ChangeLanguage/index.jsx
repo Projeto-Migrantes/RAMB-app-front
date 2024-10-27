@@ -19,7 +19,7 @@ export function ChangeLanguage() {
   function handleChangeScreen() {
     navigation.navigate("login");
   }
- 
+
     const alterarCor = (cor) => {
       color = cor
       
@@ -56,7 +56,7 @@ export function ChangeLanguage() {
         />
         <ButtonLanguage
           title="English"
-          onPress={alterarCor('#4968FF')}
+          onPress={alterarCor(Style ={ backgroundColor: '#4968FF'})}
           imgSrc={FlagUsa}
         />
         <ButtonLanguage
