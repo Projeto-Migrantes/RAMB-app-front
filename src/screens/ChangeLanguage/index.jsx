@@ -56,7 +56,7 @@ export function ChangeLanguage() {
         />
         <ButtonLanguage
           title="English"
-          onPress={alterarCor(Style ={ backgroundColor: '#4968FF'})}
+          onPress={alterarCor('#4968FF')}
           imgSrc={FlagUsa}
         />
         <ButtonLanguage
