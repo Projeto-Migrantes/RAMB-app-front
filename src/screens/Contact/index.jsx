@@ -6,11 +6,24 @@ import { TitleWithIcon } from "@components/TitleWithIcon";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { ScrollView, View } from "react-native";
 import { useForm, Controller } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from '@hookform/resolvers/zod';
+
+const contactSchema = z.object({
+  name: z.string().min(1, "Nome é obrigatório"), 
+  email: z.string().email("Email inválido"),
+  phone: z.string().min(10, "Telefone deve ter pelo menos 10 dígitos"), 
+  subject: z.string().min(1, "Assunto é obrigatório"), 
+  message: z.string().min(1, "Mensagem é obrigatória")
+});
 
 export function Contact() {
-  const { control, handleSubmit, formState: { errors } } = useForm();
+  const { control, handleSubmit, formState: { errors } } = useForm({
+    resolver: zodResolver(contactSchema),
+  });
+
   const onSubmit = (data) => {
-    console.log(data);
+    console.log(data); 
   };
 
   return (
@@ -33,7 +46,6 @@ export function Contact() {
           <Controller
             control={control}
             name="name"
-            rules={{ required: true }}
             render={({ field: { onChange, onBlur, value } }) => (
               <CommonInput
                 placeholder="Digite aqui"
@@ -43,13 +55,13 @@ export function Contact() {
               />
             )}
           />
-          {errors.name && <Label style={{ color: 'red' }}>Campo obrigatório</Label>}
+          
+          {errors.name && <Label style={{ color: 'red', marginTop: -25, padding: 10 }}>{errors.name.message}</Label>}
 
           <Label>Email</Label>
           <Controller
             control={control}
             name="email"
-            rules={{ required: true }}
             render={({ field: { onChange, onBlur, value } }) => (
               <CommonInput
                 placeholder="Digite aqui"
@@ -60,13 +72,13 @@ export function Contact() {
               />
             )}
           />
-          {errors.email && <Label style={{ color: 'red' }}>Campo obrigatório</Label>}
+        
+          {errors.email && <Label style={{ color: 'red', marginTop: -25, padding: 10 }}>{errors.email.message}</Label>}
 
           <Label>Telefone</Label>
           <Controller
             control={control}
             name="phone"
-            rules={{ required: true }}
             render={({ field: { onChange, onBlur, value } }) => (
               <CommonInput
                 placeholder="Digite aqui"
@@ -77,13 +89,13 @@ export function Contact() {
               />
             )}
           />
-          {errors.phone && <Label style={{ color: 'red' }}>Campo obrigatório</Label>}
+         
+          {errors.phone && <Label style={{ color: 'red', marginTop: -25, padding: 10 }}>{errors.phone.message}</Label>}
 
           <Label>Assunto</Label>
           <Controller
             control={control}
             name="subject"
-            rules={{ required: true }}
             render={({ field: { onChange, onBlur, value } }) => (
               <CommonInput
                 placeholder="Digite aqui"
@@ -93,13 +105,13 @@ export function Contact() {
               />
             )}
           />
-          {errors.subject && <Label style={{ color: 'red' }}>Campo obrigatório</Label>}
+          
+          {errors.subject && <Label style={{ color: 'red', marginTop: -25, padding: 10 }}>{errors.subject.message}</Label>}
 
           <Label>Mensagem</Label>
           <Controller
             control={control}
             name="message"
-            rules={{ required: true }}
             render={({ field: { onChange, onBlur, value } }) => (
               <MessageInput
                 placeholder="Digite aqui"
@@ -110,7 +122,8 @@ export function Contact() {
               />
             )}
           />
-          {errors.message && <Label style={{ color: 'red' }}>Campo obrigatório</Label>}
+
+          {errors.message && <Label style={{ color: 'red', marginTop: -25, padding: 10 }}>{errors.message.message}</Label>}
 
           <Button variant="primary" title="Enviar" onPress={handleSubmit(onSubmit)} />
         </Container>
