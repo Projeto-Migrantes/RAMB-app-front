@@ -13,16 +13,15 @@ import Feather from "@expo/vector-icons/Feather";
 import { useState } from "react";
 import api from "../../../axiosConfig";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { set } from "react-hook-form";
 import { Loading } from "../../components/Loading/Index";
 
 // const email = "alex.oliveira@example.com";
 // const password = "senhaForte123"
 const saveToken = async (token) => {
   try {
-    await AsyncStorage.setItem("bearerToken", token);
+    await AsyncStorage.setItem("token", token);
   } catch (error) {
-    console.error("Erro ao salvar o token", error);
+    alert("Erro ao realizar login. Por favor, tente novamente.")
   }
 };
 export function Login() {
@@ -36,13 +35,9 @@ export function Login() {
     navigation.navigate("help");
   }
 
-  const fetchData = async () => {
+  const SignIn = async () => {
     try {
       setLoading(true);
-      console.log("Iniciando a chamada de API...");
-      console.log("Email:", email);
-      console.log("Password:", password);
-
       const response = await api.post("/migrant/login", { email, password });
       const authHeader = await response.headers["authorization"];
       const token = authHeader.split(" ")[1];
@@ -51,7 +46,6 @@ export function Login() {
       navigation.navigate("home");
     } catch (error) {
       alert("Erro ao realizar login. Por favor, tente novamente.");
-      console.error("Erro ao realizar login", error);
       setLoading(false);
     }
   };
@@ -83,7 +77,7 @@ export function Login() {
         <Button
           variant="primary"
           title={loading ? <Loading/> : t("Entrar")}
-          onPress={fetchData}
+          onPress={SignIn}
           disabled={loading}
         />
         <ForgotPassword>{t("Esqueci minha senha")}</ForgotPassword>

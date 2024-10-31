@@ -9,47 +9,35 @@ import { CardInstitution } from "./components/CardInstitution";
 import { useNavigation } from "@react-navigation/native";
 import "@utils/i18n";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { use } from "i18next";
+import api from "../../../axiosConfig";
 
-const organizations = [
-  {
-    id: 1,
-    category: "ONGS",
-    name: "CSM- UNIFACS",
-    description:
-      "Lorem ipsum dolor ssdasd asd asd asd asd asdasd asd asd asd aasdasd asd asdsdf sdfit amet consectetur. Nunc ut proin tristique varius turpis faucibus arcu.",
-  },
-  {
-    id: 2,
-    category: "ONGS",
-    name: "ONG XYZ",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.",
-  },
-  {
-    id: 3,
-    category: "ONGS",
-    name: "Assistência Social ABC",
-    description:
-      "Fusce dictum libero ut mi egestas, sed aliquet nisi euismod. Nullam convallis purus in felis.",
-  },
-  {
-    id: 4,
-    category: "ONGS",
-    name: "Grupo de Apoio à Infância",
-    description:
-      "Curabitur vel ante in erat elementum porttitor at non magna. Sed consectetur tortor sit amet.",
-  },
-  {
-    id: 5,
-    category: "ONGS",
-    name: "Organização Verde",
-    description:
-      "Aenean lacinia sapien vel libero sagittis, at viverra libero aliquam. Sed accumsan sapien et.",
-  },
-];
 
 export function Institution() {
+  const [language, setLanguage] = useState('pt'); //teste para tradução de idioma
+  
+  const getCategory = (item) => item.Category[`category_${language}`];
+  const getDescription = (item) => item.InstitutionDescription[`description_${language}`];
+
+  const [institutions, setInstitutions] = useState([]);
+
+  useEffect(() => {
+    const fetchInstitutions = async () => {
+      try {
+        const response = await api.get('/institutions');
+        setInstitutions(response.data.institutions);
+        console.log('Instituições:', response.data.institutions);
+        
+      } catch (error) {
+        console.error('Erro ao buscar instituições:', error);
+      }
+    };
+
+    fetchInstitutions();
+  }, []);
+
+
   const { t, i18n } = useTranslation();
   const navigation = useNavigation();
   function handleInstitutionDetails() {
@@ -126,13 +114,13 @@ export function Institution() {
           }}
         />
         <FlatList
-          data={organizations}
+          data={institutions}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <CardInstitution
-              category={item.category}
+              category={getCategory(item)}
               name={item.name}
-              description={item.description}
+              description={getDescription(item)}
               onPress={handleInstitutionDetails}
             />
           )}
