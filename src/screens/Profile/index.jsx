@@ -103,21 +103,13 @@ export function Profile() {
 
             <UserDetails title='Email' info={profile.email} />
             <UserDetails title='Data de Nascimento' info={profile.date_birth ? format(parseISO(profile.date_birth), 'dd/MM/yyyy') : 'Data não disponível'} />
-            {/* <UserDetails title='Documento de Identificação ' info={`${profile.MigrantDocument.document_type} - ${profile.MigrantDocument.document_identification}`} /> */}
-            {profile.MigrantDocument && (
-    //   <UserDetails 
-    //     title='Documento de Identificação' 
-    //     info={`${profile.MigrantDocument.document_type} - ${profile.MigrantDocument.document_identification}`} 
-    //   />
-    // )}
+           
             <UserDetails title='Nome Social' info={profile.social_name} />
             <UserDetails title='Telefone' info={profile.phone} />
             <UserDetails title='Gênero' info={profile.gender} />
             <UserDetails title='Status Migratório' info={profile.status_migratory} />
             <UserDetails title='Estado Civil' info={profile.marital_status} />
             <UserDetails title='Nível de Alfabetização' info={profile.education_level} />
-{console.log(profile.MigrantDocument.document_type)}
-
             <UserDetails title='Motivo da Migração' info={profile.migrant_reason} />
             <UserDetails title='Nacionalidade' info={profile.nationality} />
           <EditOptions onPress={handleContact}>
