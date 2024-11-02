@@ -11,7 +11,7 @@ export function ChangeLanguage() {
   const navigation = useNavigation();
 
   function handleChangeScreen() {
-    navigation.navigate("login");
+    navigation.navigate("home");
   }
   const texts = [
     "Escolha seu Idioma",
