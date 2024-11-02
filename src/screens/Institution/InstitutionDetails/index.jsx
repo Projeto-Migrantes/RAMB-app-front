@@ -14,19 +14,28 @@ import Img from "@assets/test.png";
 import { BaseLink } from "./components/BaseLinks";
 import { useTranslation } from "react-i18next";
 import "@utils/i18n";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { TitleWithIcon } from "@components/TitleWithIcon";
 
 export function InstitutionDetails() {
   const { t, i18n } = useTranslation();
   return (
     <View style={{ flex: 1, backgroundColor: theme.Colors.White }}>
       <Header showBackButton />
+      <TitleWithIcon
+        title={"Instituição"}
+        icon={
+          <Ionicons
+            name="business-sharp"
+            size={26}
+            color={theme.Colors.Purple}
+          />
+        }
+      />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <Container>
-          <Content>
-            <InstitutionImage source={Img} />
-          </Content>
-          <TextCategory>ONGs</TextCategory>
           <TextTitle>CSM - UNIFACS</TextTitle>
+          <TextCategory>ONGs</TextCategory>
           <TextDescription>
             Lorem ipsum dolor ssdasd asd asd asd asd asdasd asd asd asd aasdasd
             asd asdsdf sdfit amet consectetur. Nunc ut proin tristiqueLorem

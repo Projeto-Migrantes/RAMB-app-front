@@ -1,13 +1,14 @@
 import { Button } from "@components/Button";
 import { Header } from "@components/Header";
 import theme from "@theme/index";
-import { FlatList, ScrollView, Text, View } from "react-native";
+import { ActivityIndicator, FlatList, ScrollView, Text, View } from "react-native";
 import {
   Container,
   Content,
   EditOptions,
   EditOptionsText,
   Icon,
+  LoadingIndicator,
   UserName,
   ViewDiv,
 } from "./styles";
@@ -18,6 +19,7 @@ import api from "../../../axiosConfig";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { format, parseISO } from "date-fns";
 
+
 export function Profile() {
   const navigation = useNavigation();
 
@@ -26,10 +28,11 @@ export function Profile() {
   }
 
   const [profile, setProfile] = useState([]);
-
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     const getProfile = async () => {
       try {
+        setLoading(true);
         const token = await AsyncStorage.getItem("token");
         if (token !== null) {
           const response = await api.get("/migrants/profile", {
@@ -38,23 +41,22 @@ export function Profile() {
             },
           });
           setProfile(response.data.migrant);
-          console.log(response.data);
-          console.log(response.data.migrant.MigrantDocument.document_type);
+          setLoading(false);
+
         } else {
           alert("Token não encontrado");
           navigation.navigate("login");
+          setLoading(false);
         }
       } catch (error) {
-        console.error(error);
+        alert("Aconteceu um erro, tente novamente mais tarde");
+        setLoading(false);
       }
     };
 
     getProfile();
   }, []);
 
-  console.log("Profile: ", profile);
-  const documentType = profile?.MigrantDocument?.document_type;
-  console.log(documentType);
   return (
     <View style={{ flex: 1, backgroundColor: theme.Colors.White }}>
       <Header showBackButton />
@@ -62,6 +64,8 @@ export function Profile() {
         <Container>
           <Icon name="person-circle-outline" />
           <UserName>{profile.full_name}</UserName>
+          {loading ? <LoadingIndicator/> : (
+            
           <Content>
             <UserDetails title="Email" info={profile.email} />
             <UserDetails
@@ -98,6 +102,8 @@ export function Profile() {
             />
             <UserDetails title="Nacionalidade" info={profile.nationality} />
           </Content>
+          )}
+          
           <EditOptions onPress={handleContact}>
             <EditOptionsText>
               Deseja Editar Informações? {"\n"} Entre em contato

@@ -2,7 +2,6 @@ import DropDownPicker from "react-native-dropdown-picker";
 import styled from "styled-components/native";
 
 export const Container = styled.View`
-  flex: 1;
   align-items: center;
   justify-content: center;
   padding: 0px 20px;
@@ -15,4 +14,12 @@ export const Filter = styled(DropDownPicker)`
   border-radius: 999px;
   padding: 5px 20px;
   min-height: 38px;
+`;
+
+export const LoadingIndicator = styled.ActivityIndicator.attrs(({ theme }) => ({
+  size: "large",
+  color: theme.Colors.Blue,
+}))`
+  width: 500px;
+  height: 130px;
 `;

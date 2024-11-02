@@ -11,7 +11,7 @@ export function ChangeLanguage() {
   const navigation = useNavigation();
 
   function handleChangeScreen() {
-    navigation.navigate("home");
+    navigation.navigate("login");
   }
   const texts = [
     "Escolha seu Idioma",
@@ -25,7 +25,7 @@ export function ChangeLanguage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setCurrentTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
-    }, 6000); 
+    }, 6000);
 
     return () => clearTimeout(timer);
   }, [currentTextIndex]);
