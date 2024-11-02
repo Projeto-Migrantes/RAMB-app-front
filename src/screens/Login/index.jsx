@@ -10,17 +10,46 @@ import "@utils/i18n";
 import { InputLogin } from "./components/InputLogin";
 import Fontisto from "@expo/vector-icons/Fontisto";
 import Feather from "@expo/vector-icons/Feather";
+import { useState } from "react";
+import api from "../../../axiosConfig";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Loading } from "../../components/Loading/Index";
 
+// const email = "alex.oliveira@example.com";
+// const password = "senhaForte123"
+const saveToken = async (token) => {
+  try {
+    await AsyncStorage.setItem("token", token);
+  } catch (error) {
+    alert("Erro ao realizar login. Por favor, tente novamente.")
+  }
+};
 export function Login() {
   const navigation = useNavigation();
   const { t, i18n } = useTranslation();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  function handleHome() {
-    navigation.navigate("home");
-  }
   function handleHelp() {
     navigation.navigate("help");
   }
+
+  const SignIn = async () => {
+    try {
+      setLoading(true);
+      const response = await api.post("/migrant/login", { email, password });
+      const authHeader = await response.headers["authorization"];
+      const token = authHeader.split(" ")[1];
+      await saveToken(token);
+      setLoading(false);
+      navigation.navigate("home");
+    } catch (error) {
+      alert("Erro ao realizar login. Por favor, tente novamente.");
+      setLoading(false);
+    }
+  };
+
   return (
     <View style={{ flex: 1, backgroundColor: theme.Colors.White }}>
       <Header showBackButton />
@@ -34,20 +63,25 @@ export function Login() {
         <InputLogin
           placeholder={t("Digite seu Email")}
           icon={<Fontisto name="email" size={16} color={theme.Colors.Purple} />}
-          keyboardType = "email-address"
+          keyboardType="email-address"
+          value={email}
+          onChangeText={setEmail}
         />
         <InputLogin
           placeholder={t("Digite sua Senha")}
           icon={<Feather name="lock" size={16} color={theme.Colors.Purple} />}
-          secureTextEntry={true}
+          value={password}
+          onChangeText={setPassword}
+          password
         />
-        <Button variant="primary" title={t("Entrar")} onPress={handleHome} />
-        <ForgotPassword>{t("Esqueci minha senha")}</ForgotPassword>
         <Button
-          variant="secondary"
-          title={t("Precisa de Ajuda?")}
-          onPress={handleHelp}
+          variant="primary"
+          title={loading ? <Loading/> : t("Entrar")}
+          onPress={SignIn}
+          disabled={loading}
         />
+        <ForgotPassword>{t("Esqueci minha senha")}</ForgotPassword>
+        <Button variant="secondary" title={t("Precisa de Ajuda?")} onPress={handleHelp} />
       </Container>
     </View>
   );
