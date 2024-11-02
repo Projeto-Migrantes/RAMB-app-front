@@ -8,6 +8,13 @@ export const Container = styled.View`
   gap: 16px;
   background-color: ${({ theme }) => theme.Colors.White};
 `;
+export const Content = styled.View`
+display: flex;
+flex-direction: column;
+gap: 16px;
+padding: 0 16px;
+
+`;
 
 export const UserName = styled.Text`
   ${({ theme }) => css`
