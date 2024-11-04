@@ -12,20 +12,19 @@ import FlagBrazil from "@assets/BrazilFlag.svg";
 import FlagSpain from "@assets/SpainFlag.svg";
 import FlagUsa from "@assets/UsaFlag.svg";
 import FlagFrance from "@assets/FranceFlag.svg";
+import { changeLanguage } from "i18next";
 
 export function ChangeLanguage() {
   const navigation = useNavigation();
-
   function handleChangeScreen() {
     navigation.navigate("login");
   }
-
-    const alterarCor = (cor) => {
-      color = cor
-      
-    };
   
   
+ const [title, setLanguage] = useState("Português");
+  
+ 
+ 
   const texts = [
     "Escolha seu Idioma",
     "Choose your Language",
@@ -51,22 +50,22 @@ export function ChangeLanguage() {
         </TypeWriterStyled>
         <ButtonLanguage
           title="Português"
-          onPress={alterarCor} 
+          onPress={setLanguage('Português')}
           imgSrc={FlagBrazil}
         />
         <ButtonLanguage
           title="English"
-          onPress={alterarCor('#4968FF')}
+          onPress={setLanguage('English')}
           imgSrc={FlagUsa}
         />
         <ButtonLanguage
           title="Français"
-          onPress={alterarCor}    
+          onPress={setLanguage('Français')}    
           imgSrc={FlagFrance}
         />
         <ButtonLanguage
           title="Español"
-          onPress ={alterarCor}
+          onPress ={setLanguage('Español')}
           imgSrc={FlagSpain}
         />
 
