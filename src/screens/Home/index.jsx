@@ -12,11 +12,31 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { ButtonMenu } from "./components/ButtonMenu";
 import { useTranslation } from "react-i18next";
 import "@utils/i18n";
+import { useEffect, useState } from "react";
+import api from "../../../axiosConfig";
 
 export function Home() {
   const navigation = useNavigation();
   const { t, i18n } = useTranslation();
+  const [language, setLanguage] = useState('pt'); //teste para tradução de idioma
+  const [pdfUrl, setPdfUrl] = useState('');
+  useEffect(() => {
+    const fetchPDF = async () => {
+      try {
+        const response = await api.get(
+          `/pdfs/${language}`
+        );
+        setPdfUrl(response.data.url);
 
+      } catch (error) {
+        setPdfUrl('');
+      }
+    };
+  
+    fetchPDF();
+  }, []);
+
+  console.log(pdfUrl);
   function handleInstitution() {
     navigation.navigate("institution");
   }
@@ -33,7 +53,7 @@ export function Home() {
     navigation.navigate("changeLanguage");
   }
   function handleLink() {
-    const url = "https://api-upload-download-production.up.railway.app/download/mockup.pdf";
+    const url = pdfUrl;
     Linking.openURL(url);
   }
   const MenuItens = [

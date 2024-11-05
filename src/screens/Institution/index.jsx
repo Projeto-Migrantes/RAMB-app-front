@@ -51,6 +51,7 @@ export function Institution() {
         if (error.response && error.response.status === 404) {
           setErrorMessage("Nenhuma instituição encontrada");
         } else {
+          if(loading){return}
           setErrorMessage("Erro ao buscar instituições");
         }
         setInstitutionsCategory([]);
@@ -64,7 +65,7 @@ export function Institution() {
         const response = await api.get("/categories");
         setCategories(response.data.categories);
       } catch (error) {
-        alert("Erro ao busscar categorias: ", error);
+        alert("Erro ao buscar categorias: ", error);
         setLoading(false);
       }
     };
@@ -154,45 +155,47 @@ export function Institution() {
       />
 
       <Container>
+
+          <Filter
+            open={open}
+            value={value}
+            items={items}
+            setOpen={setOpen}
+            setValue={setValue}
+            setItems={setItems}
+            onChangeValue={(value) => {
+              setCategoryId(value);
+            }}
+            placeholder={t("Selecionar tipo de Instituição")}
+            placeholderStyle={{
+              color: theme.Colors.Gray_700,
+              fontFamily: theme.Font_Family.Regular,
+              fontSize: 18,
+            }}
+            dropDownContainerStyle={{
+              backgroundColor: theme.Colors.Gray_500,
+              fontFamily: theme.Font_Family.Regular,
+              borderWidth: 0,
+              borderRadius: 0,
+            }}
+            arrowIconStyle={{
+              tintColor: theme.Colors.Blue,
+            }}
+            selectedItemLabelStyle={{
+              fontFamily: theme.Font_Family.Bold,
+              color: theme.Colors.Blue,
+            }}
+            labelStyle={{
+              fontFamily: theme.Font_Family.Regular,
+              fontSize: 16,
+              color: theme.Colors.Black,
+            }}
+          />
+
         {loading ? (
           <LoadingIndicator />
         ) : (
           <>
-            <Filter
-              open={open}
-              value={value}
-              items={items}
-              setOpen={setOpen}
-              setValue={setValue}
-              setItems={setItems}
-              onChangeValue={(value) => {
-                setCategoryId(value);
-              }}
-              placeholder={t("Selecionar tipo de Instituição")}
-              placeholderStyle={{
-                color: theme.Colors.Gray_700,
-                fontFamily: theme.Font_Family.Regular,
-                fontSize: 18,
-              }}
-              dropDownContainerStyle={{
-                backgroundColor: theme.Colors.Gray_500,
-                fontFamily: theme.Font_Family.Regular,
-                borderWidth: 0,
-                borderRadius: 0,
-              }}
-              arrowIconStyle={{
-                tintColor: theme.Colors.Blue,
-              }}
-              selectedItemLabelStyle={{
-                fontFamily: theme.Font_Family.Bold,
-                color: theme.Colors.Blue,
-              }}
-              labelStyle={{
-                fontFamily: theme.Font_Family.Regular,
-                fontSize: 16,
-                color: theme.Colors.Black,
-              }}
-            />
             {errorMessage ? (
               <Text>{t(errorMessage)}</Text>
             ) : (
