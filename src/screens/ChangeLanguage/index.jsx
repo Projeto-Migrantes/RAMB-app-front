@@ -5,26 +5,27 @@ import { ButtonLanguage } from "@components/ButtonLanguage";
 import { useNavigation } from "@react-navigation/native";
 import { View } from "react-native";
 import theme from "@theme/index";
-import { TitleWithDescription } from "@components/TitleWithDescription";
-import TypeWriter from "react-native-typewriter";
 import { useEffect, useState } from "react";
 import FlagBrazil from "@assets/BrazilFlag.svg";
 import FlagSpain from "@assets/SpainFlag.svg";
 import FlagUsa from "@assets/UsaFlag.svg";
 import FlagFrance from "@assets/FranceFlag.svg";
-import { changeLanguage } from "i18next";
-
+import TypeWriter from "react-native-typewriter";
+import { Containerdois } from "../../components/ButtonLanguage/styles";
+import { Titledois } from "../../components/ButtonLanguage/styles";
 export function ChangeLanguage() {
   const navigation = useNavigation();
+  const [title, setLanguage] = useState("Português");
+  const [selectedLanguage, setSelectedLanguage] = useState("Português");
+  
   function handleChangeScreen() {
     navigation.navigate("login");
   }
-  
-  
- const [title, setLanguage] = useState("Português");
-  
- 
- 
+  function handleLanguageChange(language,Containerdois,Titledois) {
+    setLanguage(language);
+    setSelectedLanguage(language);
+     
+  }
   const texts = [
     "Escolha seu Idioma",
     "Choose your Language",
@@ -41,6 +42,7 @@ export function ChangeLanguage() {
 
     return () => clearTimeout(timer);
   }, [currentTextIndex]);
+
   return (
     <View style={{ flex: 1, backgroundColor: theme.Colors.White }}>
       <Header />
@@ -48,25 +50,30 @@ export function ChangeLanguage() {
         <TypeWriterStyled typing={1} minDelay={100} maxDelay={100}>
           {texts[currentTextIndex]}
         </TypeWriterStyled>
+
         <ButtonLanguage
-          title="Português"
-          onPress={setLanguage('Português')}
-          imgSrc={FlagBrazil}
+         title="Português"
+         onPress={() => handleLanguageChange("Português")}
+         imgSrc={FlagBrazil}
+         isSelected={selectedLanguage === "Português" }
         />
         <ButtonLanguage
           title="English"
-          onPress={setLanguage('English')}
+          onPress={() => handleLanguageChange("English")}
           imgSrc={FlagUsa}
+          isSelected={selectedLanguage === "English"}
         />
         <ButtonLanguage
           title="Français"
-          onPress={setLanguage('Français')}    
+          onPress={() => handleLanguageChange("Français")}
           imgSrc={FlagFrance}
+          isSelected={selectedLanguage === "Français"}
         />
         <ButtonLanguage
           title="Español"
-          onPress ={setLanguage('Español')}
+          onPress={() => handleLanguageChange("Español")}
           imgSrc={FlagSpain}
+          isSelected={selectedLanguage === "Español"}
         />
 
         <Button
