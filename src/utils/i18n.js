@@ -2,8 +2,8 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import en from "./en.json";
 import pt from "./pt.json";
-import esp from "./esp.json";
-import fran from "./fran.json";
+import es from "./es.json";
+import fr from "./fr.json";
 
 i18n.use(initReactI18next).init({
   compatibilityJSON: "v3",
@@ -11,8 +11,8 @@ i18n.use(initReactI18next).init({
   resources: {
     en: en,
     pt: pt,
-    esp: esp,
-    fran: fran,
+    es: es,
+    fr: fr,
   },
   react: {
     useSuspense: false,

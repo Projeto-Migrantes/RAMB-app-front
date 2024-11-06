@@ -11,16 +11,21 @@
   "dependencies": {
     "@expo-google-fonts/nunito": "^0.2.3",
     "@expo/metro-runtime": "~3.2.3",
+    "@hookform/resolvers": "^3.9.1",
+    "@react-native-async-storage/async-storage": "^1.23.1",
     "@react-native-picker/picker": "^2.7.5",
     "@react-navigation/native": "^6.1.18",
     "@react-navigation/native-stack": "^6.11.0",
     "@types/react": "~18.2.79",
+    "axios": "^1.7.7",
+    "date-fns": "^4.1.0",
     "expo": "~51.0.38",
     "expo-font": "~12.0.10",
     "expo-status-bar": "~1.12.1",
     "i18next": "^23.16.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.53.1",
     "react-i18next": "^15.0.3",
     "react-native": "0.74.5",
     "react-native-dropdown-picker": "^5.4.6",
@@ -30,7 +35,8 @@
     "react-native-typewriter": "^0.7.0",
     "react-native-web": "~0.19.10",
     "styled-components": "^6.1.13",
-    "typescript": "~5.3.3"
+    "typescript": "~5.3.3",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

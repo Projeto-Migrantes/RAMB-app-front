@@ -1,82 +1,159 @@
 import { Header } from "@components/Header";
 import theme from "@theme/index";
-import { FlatList, View } from "react-native";
+import { FlatList, Text, View } from "react-native";
 import { TitleWithIcon } from "@components/TitleWithIcon";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { Container, Filter } from "./styles";
+import { Container, Filter, LoadingIndicator } from "./styles";
 import { SearchBar } from "./components/SearchBar";
 import { CardInstitution } from "./components/CardInstitution";
 import { useNavigation } from "@react-navigation/native";
 import "@utils/i18n";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
-
-const organizations = [
-  {
-    id: 1,
-    category: "ONGS",
-    name: "CSM- UNIFACS",
-    description:
-      "Lorem ipsum dolor ssdasd asd asd asd asd asdasd asd asd asd aasdasd asd asdsdf sdfit amet consectetur. Nunc ut proin tristique varius turpis faucibus arcu.",
-  },
-  {
-    id: 2,
-    category: "ONGS",
-    name: "ONG XYZ",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.",
-  },
-  {
-    id: 3,
-    category: "ONGS",
-    name: "Assistência Social ABC",
-    description:
-      "Fusce dictum libero ut mi egestas, sed aliquet nisi euismod. Nullam convallis purus in felis.",
-  },
-  {
-    id: 4,
-    category: "ONGS",
-    name: "Grupo de Apoio à Infância",
-    description:
-      "Curabitur vel ante in erat elementum porttitor at non magna. Sed consectetur tortor sit amet.",
-  },
-  {
-    id: 5,
-    category: "ONGS",
-    name: "Organização Verde",
-    description:
-      "Aenean lacinia sapien vel libero sagittis, at viverra libero aliquam. Sed accumsan sapien et.",
-  },
-];
+import { useEffect, useState } from "react";
+import { use } from "i18next";
+import api from "../../../axiosConfig";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export function Institution() {
-  const { t, i18n } = useTranslation();
-  const navigation = useNavigation();
-  function handleInstitutionDetails() {
-    navigation.navigate("InstitutionDetails");
-  }
+  const [language, setLanguage] = useState("pt"); //teste para tradução de idioma
+
+  const getCategory = (item) => item.Category[`category_${language}`];
+  const getDescription = (item) =>
+    item.InstitutionDescription[`description_${language}`];
+
+  const [categories, setCategories] = useState([]);
+  const [categoryId, setCategoryId] = useState(0);
+  const [institutionsCategory, setInstitutionsCategory] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState([]);
-  const [items, setItems] = useState([
-    { label: "Todas as Categorias", value: "all" },
-    { label: "Agência Governamental", value: "Agência Governamental" },
-    { label: "Delegacia de Migração", value: "Delegacia de Migração" },
-    { label: "Centro de Atenção", value: "Centro de Atenção" },
-    {
-      label: "Sociedade Civil Organizada",
-      value: "Sociedade Civil Organizada",
-    },
-    { label: "Organização Internacional", value: "Organização Internacional" },
-    { label: "Instituição Religiosa", value: "Instituição Religiosa" },
-    { label: "Instituição de Ensino", value: "Instituição de Ensino" },
-    {
-      label: "Procuradoria / Defensoria Pública",
-      value: "Procuradoria / Defensoria Pública",
-    },
-    { label: "Tradutores Juramentos", value: "Tradutores Juramentos" },
-    { label: "Outros", value: "Outros" },
-  ]);
+  const [items, setItems] = useState([]);
+
+  const { t, i18n } = useTranslation();
+  const navigation = useNavigation();
+
+  const saveInstitutionId = async (institutionId) => {
+    try {
+      await AsyncStorage.setItem("institutionId", institutionId.toString());
+    } catch (error) {
+      console.error("Erro ao salvar o Institution ID:", error);
+    }
+  };
+  async function handleInstitutionDetails(id) {
+    try {
+      await AsyncStorage.setItem("institutionId", id.toString());
+      navigation.navigate("InstitutionDetails");
+    } catch (error) {
+      console.error("Erro ao salvar o Institution ID:", error);
+    }
+  }
+
+  useEffect(() => {
+    const fetchInstitutions = async () => {
+      try {
+        setLoading(true);
+        const responseCategory = await api.get(
+          `/institutions/category/${categoryId}`
+        );
+        setInstitutionsCategory(responseCategory.data.institutions);
+        setErrorMessage("");
+        setLoading(false);
+      } catch (error) {
+        if (error.response && error.response.status === 404) {
+          setErrorMessage("Nenhuma instituição encontrada");
+        } else {
+          if (loading) {
+            return;
+          }
+          setErrorMessage("Erro ao buscar instituições");
+        }
+        setInstitutionsCategory([]);
+        setLoading(false);
+      }
+    };
+
+    const getCategories = async () => {
+      try {
+        setLoading(true);
+        const response = await api.get("/categories");
+        setCategories(response.data.categories);
+      } catch (error) {
+        alert("Erro ao buscar categorias: ", error);
+        setLoading(false);
+      }
+    };
+
+    getCategories();
+    fetchInstitutions();
+  }, [categoryId]);
+
+  useEffect(() => {
+    setItems([
+      { label: `${categories[0]?.[`category_${language}`]}`, value: "0" },
+      {
+        label: `${categories[1]?.[`category_${language}`]}`,
+        value: `${categories[1]?.id}`,
+      },
+      {
+        label: `${categories[2]?.[`category_${language}`]}`,
+        value: `${categories[2]?.id}`,
+      },
+      {
+        label: `${categories[3]?.[`category_${language}`]}`,
+        value: `${categories[3]?.id}`,
+      },
+      {
+        label: `${categories[4]?.[`category_${language}`]}`,
+        value: `${categories[4]?.id}`,
+      },
+      {
+        label: `${categories[5]?.[`category_${language}`]}`,
+        value: `${categories[5]?.id}`,
+      },
+      {
+        label: `${categories[6]?.[`category_${language}`]}`,
+        value: `${categories[6]?.id}`,
+      },
+      {
+        label: `${categories[7]?.[`category_${language}`]}`,
+        value: `${categories[7]?.id}`,
+      },
+      {
+        label: `${categories[8]?.[`category_${language}`]}`,
+        value: `${categories[8]?.id}`,
+      },
+      {
+        label: `${categories[9]?.[`category_${language}`]}`,
+        value: `${categories[9]?.id}`,
+      },
+      {
+        label: `${categories[10]?.[`category_${language}`]}`,
+        value: `${categories[10]?.id}`,
+      },
+      {
+        label: `${categories[11]?.[`category_${language}`]}`,
+        value: `${categories[11]?.id}`,
+      },
+      {
+        label: `${categories[12]?.[`category_${language}`]}`,
+        value: `${categories[12]?.id}`,
+      },
+      {
+        label: `${categories[13]?.[`category_${language}`]}`,
+        value: `${categories[13]?.id}`,
+      },
+      {
+        label: `${categories[14]?.[`category_${language}`]}`,
+        value: `${categories[14]?.id}`,
+      },
+      {
+        label: `${categories[15]?.[`category_${language}`]}`,
+        value: `${categories[15]?.id}`,
+      },
+    ]);
+  }, [categories]);
 
   return (
     <View style={{ flex: 1, backgroundColor: theme.Colors.White }}>
@@ -91,8 +168,8 @@ export function Institution() {
           />
         }
       />
+
       <Container>
-        <SearchBar placeholder={t("Pesquisar")} />
         <Filter
           open={open}
           value={value}
@@ -100,6 +177,9 @@ export function Institution() {
           setOpen={setOpen}
           setValue={setValue}
           setItems={setItems}
+          onChangeValue={(value) => {
+            setCategoryId(value);
+          }}
           placeholder={t("Selecionar tipo de Instituição")}
           placeholderStyle={{
             color: theme.Colors.Gray_700,
@@ -125,20 +205,31 @@ export function Institution() {
             color: theme.Colors.Black,
           }}
         />
-        <FlatList
-          data={organizations}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <CardInstitution
-              category={item.category}
-              name={item.name}
-              description={item.description}
-              onPress={handleInstitutionDetails}
-            />
-          )}
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ paddingBottom: 50, gap: 15 }}
-        />
+
+        {loading ? (
+          <LoadingIndicator />
+        ) : (
+          <>
+            {errorMessage ? (
+              <Text>{t(errorMessage)}</Text>
+            ) : (
+              <FlatList
+                data={institutionsCategory}
+                keyExtractor={(item) => item.id}
+                renderItem={({ item }) => (
+                  <CardInstitution
+                    category={getCategory(item)}
+                    name={item.name}
+                    description={getDescription(item)}
+                    onPress={() => handleInstitutionDetails(item.id)}
+                  />
+                )}
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={{ paddingBottom: 50, gap: 15 }}
+              />
+            )}
+          </>
+        )}
       </Container>
     </View>
   );
