@@ -5,8 +5,8 @@ export const Container = styled.View`
   flex: 1;
   justify-content: center;
   padding: 0px 30px;
-  gap: 16px;
-  margin-bottom: 30px ;
+  gap: 8px;
+  margin-bottom: 30px;
 `;
 
 export const Content = styled.View`
@@ -14,12 +14,7 @@ export const Content = styled.View`
 `;
 
 export const Informartion = styled.View`
-    gap: 25px;
-`;
-export const InstitutionImage = styled(Image)`
-  border-radius: 10px;
-  width: 250px;
-  height: 250px;
+  gap: 25px;
 `;
 
 export const TextCategory = styled.Text`
@@ -36,6 +31,7 @@ export const TextTitle = styled.Text`
     font-size: ${theme.Font_Size.MD}px;
     color: ${theme.Colors.Black};
   `};
+
 `;
 
 export const TextDescription = styled.Text`
@@ -45,4 +41,15 @@ export const TextDescription = styled.Text`
     color: ${theme.Colors.Gray_700};
   `};
   text-align: justify;
+  margin-bottom: 25px;
+`;
+
+export const LoadingIndicator = styled.ActivityIndicator.attrs(({ theme }) => ({
+  size: "large",
+  color: theme.Colors.Blue,
+}))`
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
 `;

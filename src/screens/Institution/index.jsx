@@ -12,6 +12,7 @@ import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import { use } from "i18next";
 import api from "../../../axiosConfig";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export function Institution() {
   const [language, setLanguage] = useState("pt"); //teste para tradução de idioma
@@ -33,8 +34,20 @@ export function Institution() {
   const { t, i18n } = useTranslation();
   const navigation = useNavigation();
 
-  function handleInstitutionDetails() {
-    navigation.navigate("InstitutionDetails");
+  const saveInstitutionId = async (institutionId) => {
+    try {
+      await AsyncStorage.setItem("institutionId", institutionId.toString());
+    } catch (error) {
+      console.error("Erro ao salvar o Institution ID:", error);
+    }
+  };
+  async function handleInstitutionDetails(id) {
+    try {
+      await AsyncStorage.setItem("institutionId", id.toString());
+      navigation.navigate("InstitutionDetails");
+    } catch (error) {
+      console.error("Erro ao salvar o Institution ID:", error);
+    }
   }
 
   useEffect(() => {
@@ -51,7 +64,9 @@ export function Institution() {
         if (error.response && error.response.status === 404) {
           setErrorMessage("Nenhuma instituição encontrada");
         } else {
-          if(loading){return}
+          if (loading) {
+            return;
+          }
           setErrorMessage("Erro ao buscar instituições");
         }
         setInstitutionsCategory([]);
@@ -155,42 +170,41 @@ export function Institution() {
       />
 
       <Container>
-
-          <Filter
-            open={open}
-            value={value}
-            items={items}
-            setOpen={setOpen}
-            setValue={setValue}
-            setItems={setItems}
-            onChangeValue={(value) => {
-              setCategoryId(value);
-            }}
-            placeholder={t("Selecionar tipo de Instituição")}
-            placeholderStyle={{
-              color: theme.Colors.Gray_700,
-              fontFamily: theme.Font_Family.Regular,
-              fontSize: 18,
-            }}
-            dropDownContainerStyle={{
-              backgroundColor: theme.Colors.Gray_500,
-              fontFamily: theme.Font_Family.Regular,
-              borderWidth: 0,
-              borderRadius: 0,
-            }}
-            arrowIconStyle={{
-              tintColor: theme.Colors.Blue,
-            }}
-            selectedItemLabelStyle={{
-              fontFamily: theme.Font_Family.Bold,
-              color: theme.Colors.Blue,
-            }}
-            labelStyle={{
-              fontFamily: theme.Font_Family.Regular,
-              fontSize: 16,
-              color: theme.Colors.Black,
-            }}
-          />
+        <Filter
+          open={open}
+          value={value}
+          items={items}
+          setOpen={setOpen}
+          setValue={setValue}
+          setItems={setItems}
+          onChangeValue={(value) => {
+            setCategoryId(value);
+          }}
+          placeholder={t("Selecionar tipo de Instituição")}
+          placeholderStyle={{
+            color: theme.Colors.Gray_700,
+            fontFamily: theme.Font_Family.Regular,
+            fontSize: 18,
+          }}
+          dropDownContainerStyle={{
+            backgroundColor: theme.Colors.Gray_500,
+            fontFamily: theme.Font_Family.Regular,
+            borderWidth: 0,
+            borderRadius: 0,
+          }}
+          arrowIconStyle={{
+            tintColor: theme.Colors.Blue,
+          }}
+          selectedItemLabelStyle={{
+            fontFamily: theme.Font_Family.Bold,
+            color: theme.Colors.Blue,
+          }}
+          labelStyle={{
+            fontFamily: theme.Font_Family.Regular,
+            fontSize: 16,
+            color: theme.Colors.Black,
+          }}
+        />
 
         {loading ? (
           <LoadingIndicator />
@@ -207,7 +221,7 @@ export function Institution() {
                     category={getCategory(item)}
                     name={item.name}
                     description={getDescription(item)}
-                    onPress={handleInstitutionDetails}
+                    onPress={() => handleInstitutionDetails(item.id)}
                   />
                 )}
                 showsVerticalScrollIndicator={false}

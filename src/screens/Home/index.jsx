@@ -36,7 +36,6 @@ export function Home() {
     fetchPDF();
   }, []);
 
-  console.log(pdfUrl);
   function handleInstitution() {
     navigation.navigate("institution");
   }

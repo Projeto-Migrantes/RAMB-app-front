@@ -46,10 +46,6 @@ const handlePressMap = {
     const url = `mailto:${description}`;
     Linking.openURL(url);
   },
-  phone: (description) => {
-    const url = `tel:${description}`;
-    Linking.openURL(url);
-  },
   site: (description) => {
     const url = `${description}`;
     Linking.openURL(url);
