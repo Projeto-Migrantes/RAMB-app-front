@@ -10,23 +10,15 @@ import FlagBrazil from "@assets/BrazilFlag.svg";
 import FlagSpain from "@assets/SpainFlag.svg";
 import FlagUsa from "@assets/UsaFlag.svg";
 import FlagFrance from "@assets/FranceFlag.svg";
-import TypeWriter from "react-native-typewriter";
-import { Containerdois } from "../../components/ButtonLanguage/styles";
-import { Titledois } from "../../components/ButtonLanguage/styles";
 
 export function ChangeLanguage() {
   const navigation = useNavigation();
-  const [title, setLanguage] = useState("Português");
-  const [selectedLanguage, setSelectedLanguage] = useState("Português");
-  
+
   function handleChangeScreen() {
     navigation.navigate("login");
   }
-  function handleLanguageChange(language,Containerdois,Titledois) {
-    setLanguage(language);
-    setSelectedLanguage(language);
-    Containerdois()
-  }
+
+
   const texts = [
     "Escolha seu Idioma",
     "Choose your Language",
@@ -53,28 +45,20 @@ export function ChangeLanguage() {
         </TypeWriterStyled>
 
         <ButtonLanguage
-         title="Português"
-         onPress={() => handleLanguageChange("Português")}
-         imgSrc={FlagBrazil}
-         isSelected={selectedLanguage === "Português" }
+          title="Português"
+          imgSrc={FlagBrazil}
         />
         <ButtonLanguage
           title="English"
-          onPress={() => handleLanguageChange("English")}
           imgSrc={FlagUsa}
-          isSelected={selectedLanguage === "English"}
         />
         <ButtonLanguage
           title="Français"
-          onPress={() => handleLanguageChange("Français")}
           imgSrc={FlagFrance}
-          isSelected={selectedLanguage === "Français"}
         />
         <ButtonLanguage
           title="Español"
-          onPress={() => handleLanguageChange("Español")}
           imgSrc={FlagSpain}
-          isSelected={selectedLanguage === "Español"}
         />
 
         <Button

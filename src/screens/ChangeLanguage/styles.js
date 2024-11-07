@@ -3,11 +3,12 @@ import TypeWriter from "react-native-typewriter";
 
 export const Container = styled.View`
   flex: 1;
-  background-color: ${({ theme }) => theme.Colors.White};
   align-items: center;
   justify-content: center;
   padding: 0 30px;
+  gap: 20px;
 `;
+
 
 export const Title = styled.Text`
   color: ${({ theme }) => theme.Colors.Black};
