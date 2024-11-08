@@ -1,5 +1,6 @@
 import { Button } from "@components/Button";
 import { Header } from "@components/Header";
+import { Alert, ActivityIndicator } from "react-native";
 import theme from "@theme/index";
 import { Container, Label, CommonInput, MessageInput } from "./styles";
 import { TitleWithIcon } from "@components/TitleWithIcon";
@@ -8,22 +9,39 @@ import { ScrollView, View } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from '@hookform/resolvers/zod';
+import api from "../../../axiosConfig";
+import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
 
 const contactSchema = z.object({
   name: z.string().min(1, "Nome é obrigatório"), 
   email: z.string().email("Email inválido"),
-  phone: z.string().min(10, "Telefone deve ter pelo menos 10 dígitos"), 
+  phone: z.string().min(10, "Telefone deve ter pelo menos 10 dígitos").regex(/^\(?\d{2}\)? ?\d{4,5}-?\d{4}$/, "Telefone deve ter um formato válido"), 
   subject: z.string().min(1, "Assunto é obrigatório"), 
   message: z.string().min(1, "Mensagem é obrigatória")
 });
 
 export function Contact() {
+  const navigation = useNavigation();
+  const [loading, setLoading] = useState(false);
   const { control, handleSubmit, formState: { errors } } = useForm({
     resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = (data) => {
-    console.log(data); 
+  const onSubmit = async (data) => {
+    try {
+      console.log(data);
+      
+      setLoading(true); 
+      await api.post('/forms', data);   
+      setLoading(false); 
+      Alert.alert('Formulário Enviado com sucesso!');
+      navigation.navigate("home");
+    } catch (error) {
+      Alert.alert('Erro ao tentar enviar formulário!');
+      setLoading(false); 
+      console.log(error);
+    }
   };
 
   return (
@@ -125,7 +143,12 @@ export function Contact() {
 
           {errors.message && <Label style={{ color: 'red', marginTop: -25, padding: 10 }}>{errors.message.message}</Label>}
 
-          <Button variant="primary" title="Enviar" onPress={handleSubmit(onSubmit)} />
+          {loading ? (
+            <ActivityIndicator size="large" color={theme.Colors.Purple} />
+          ) : (
+            <Button 
+              variant="primary" title="Enviar" onPress={handleSubmit(onSubmit)} disabled={loading} />
+          )}
         </Container>
       </ScrollView>
     </View>

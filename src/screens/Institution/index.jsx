@@ -91,7 +91,9 @@ export function Institution() {
 
   useEffect(() => {
     setItems([
-      { label: `${categories[0]?.[`category_${language}`]}`, value: "0" },
+      { label: `${categories[0]?.[`category_${language}`]}`, 
+        value: "0" 
+      },
       {
         label: `${categories[1]?.[`category_${language}`]}`,
         value: `${categories[1]?.id}`,
