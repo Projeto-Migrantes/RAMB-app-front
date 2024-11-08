@@ -11,12 +11,15 @@ export const Container = styled(TouchableOpacity).attrs({
   width: 100%;
   height: 50px;
   border-width: 1px;
-  border-color: ${({ theme }) => theme.Colors.Blue};
+  border-color: ${({ theme, isActive }) =>
+    isActive ? theme.Colors.Purple : theme.Colors.Blue};
+  background-color: ${({ theme, isActive }) =>
+    isActive ? theme.Colors.Purple : "transparent"};
 `;
 
 export const Title = styled.Text`
   font-size: ${({ theme }) => theme.Font_Size.LG}px;
-  color: ${({ theme }) => theme.Colors.Purple};
+  color: ${({ theme, isActive }) => (isActive ? "#fff" : theme.Colors.Purple)};
   font-family: ${({ theme }) => theme.Font_Family.Bold};
   text-align: center;
 `;

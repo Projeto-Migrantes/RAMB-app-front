@@ -10,13 +10,34 @@ import FlagBrazil from "@assets/BrazilFlag.svg";
 import FlagSpain from "@assets/SpainFlag.svg";
 import FlagUsa from "@assets/UsaFlag.svg";
 import FlagFrance from "@assets/FranceFlag.svg";
+import i18n from "../../utils/i18n";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export function ChangeLanguage() {
+  const [language, setLanguage] = useState("pt");
+  const [activeButton, setActiveButton] = useState('pt'); // mudar para o idioma selecionado 
   const navigation = useNavigation();
 
-  function handleChangeScreen() {
-    navigation.navigate("login");
-  }
+  useEffect(() => {
+    const loadLanguage = async () => {
+      const savedLanguage = await AsyncStorage.getItem('language');
+      if (savedLanguage) {
+        setLanguage(savedLanguage);
+        setActiveButton(savedLanguage);
+        i18n.changeLanguage(savedLanguage);
+      }
+    };
+    loadLanguage();
+  }, []);
+
+  const ChangeLanguage = async (value) => {
+    setActiveButton(value);
+    setLanguage(value);
+    i18n.changeLanguage(value);
+    await AsyncStorage.setItem('language', value);
+    navigation.navigate("home");
+  };
+
 
 
   const texts = [
@@ -45,27 +66,29 @@ export function ChangeLanguage() {
         </TypeWriterStyled>
 
         <ButtonLanguage
-          title="Português"
-          imgSrc={FlagBrazil}
-        />
-        <ButtonLanguage
-          title="English"
-          imgSrc={FlagUsa}
-        />
-        <ButtonLanguage
-          title="Français"
-          imgSrc={FlagFrance}
-        />
-        <ButtonLanguage
-          title="Español"
-          imgSrc={FlagSpain}
-        />
-
-        <Button
-          variant="primary"
-          title="Escolher"
-          onPress={handleChangeScreen}
-        />
+        title="Português"
+        imgSrc={FlagBrazil}
+        isActive={activeButton === 'pt'}
+        onPress={() => ChangeLanguage('pt')}
+      />
+      <ButtonLanguage
+        title="English"
+        imgSrc={FlagUsa}
+        isActive={activeButton === 'en'}
+        onPress={() => ChangeLanguage('en')}
+      />
+      <ButtonLanguage
+        title="Français"
+        imgSrc={FlagFrance}
+        isActive={activeButton === 'fr'}
+        onPress={() => ChangeLanguage('fr')}
+      />
+      <ButtonLanguage
+        title="Español"
+        imgSrc={FlagSpain}
+        isActive={activeButton === 'es'}
+        onPress={() => ChangeLanguage('es')}
+      />
       </Container>
     </View>
   );

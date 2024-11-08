@@ -13,7 +13,7 @@ const { Navigator, Screen } = createNativeStackNavigator();
 export function AppRoutes() {
   return (
     <Navigator
-      initialRouteName="home"
+      initialRouteName="changeLanguage"
       screenOptions={{ headerShown: false }}
     >
       <Screen name="changeLanguage" component={ChangeLanguage} />
