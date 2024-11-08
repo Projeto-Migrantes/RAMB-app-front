@@ -26,6 +26,14 @@ export function Contact() {
   const [loading, setLoading] = useState(false);
   const { control, handleSubmit, formState: { errors } } = useForm({
     resolver: zodResolver(contactSchema),
+    mode: 'onSubmit',
+    defaultValues: {
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: '',
+  },
   });
 
   const onSubmit = async (data) => {
