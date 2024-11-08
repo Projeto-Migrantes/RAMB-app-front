@@ -41,15 +41,16 @@ export function Profile() {
             },
           });
           setProfile(response.data.migrant);
-          setLoading(false);
+
 
         } else {
           alert("Token não encontrado");
           navigation.navigate("login");
-          setLoading(false);
+
         }
       } catch (error) {
         alert("Aconteceu um erro, tente novamente mais tarde");
+      }finally{
         setLoading(false);
       }
     };

@@ -59,7 +59,6 @@ export function Institution() {
         );
         setInstitutionsCategory(responseCategory.data.institutions);
         setErrorMessage("");
-        setLoading(false);
       } catch (error) {
         if (error.response && error.response.status === 404) {
           setErrorMessage("Nenhuma instituição encontrada");
@@ -70,6 +69,7 @@ export function Institution() {
           setErrorMessage("Erro ao buscar instituições");
         }
         setInstitutionsCategory([]);
+      } finally {
         setLoading(false);
       }
     };

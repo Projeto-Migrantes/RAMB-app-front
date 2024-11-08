@@ -34,9 +34,9 @@ export function InstitutionDetails() {
         const response = await api.get(`/institutions/${id}`);
 
         setInstitution(response.data.institution);
-        setLoading(false);
       } catch (error) {
         alert("Aconteceu um erro, tente novamente", error);
+      } finally {
         setLoading(false);
       }
     };

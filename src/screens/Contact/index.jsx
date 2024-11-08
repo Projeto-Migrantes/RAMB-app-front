@@ -42,13 +42,12 @@ export function Contact() {
       
       setLoading(true); 
       await api.post('/forms', data);   
-      setLoading(false); 
       Alert.alert('Formulário Enviado com sucesso!');
       navigation.navigate("home");
     } catch (error) {
       Alert.alert('Erro ao tentar enviar formulário!');
-      setLoading(false); 
-      console.log(error);
+    } finally{
+      setLoading(false);
     }
   };
 
