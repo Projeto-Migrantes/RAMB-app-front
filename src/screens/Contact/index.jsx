@@ -20,6 +20,14 @@ const contactSchema = z.object({
 export function Contact() {
   const { control, handleSubmit, formState: { errors } } = useForm({
     resolver: zodResolver(contactSchema),
+    mode: 'onSubmit',
+    defaultValues: {
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: '',
+  },
   });
 
   const onSubmit = (data) => {
