@@ -1,5 +1,5 @@
 import { Header } from "@components/Header";
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import theme from "@theme/index";
 import { FlatList, Linking, View } from "react-native";
 import { Container, Content } from "./styles";
@@ -12,34 +12,55 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { ButtonMenu } from "./components/ButtonMenu";
 import { useTranslation } from "react-i18next";
 import "@utils/i18n";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import api from "../../../axiosConfig";
 import { getSavedLanguage } from "../../hooks/useSavedLanguage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export function Home() {
   const navigation = useNavigation();
   const { t, i18n } = useTranslation();
-  const [language, setLanguage] = useState("pt");
   const [pdfUrl, setPdfUrl] = useState('');
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const savedLanguage = await getSavedLanguage();
-        setLanguage(savedLanguage);
+  const [language, setLanguage] = useState("pt");
 
-        if (savedLanguage) {
-          const response = await api.get(`/pdfs/${savedLanguage}`);
-          setPdfUrl(response.data.url);
-        }
+  const initialize = async () => {
+    try {
+      const savedLanguage = await AsyncStorage.getItem("language") || await getSavedLanguage();
+      if (savedLanguage) {
+        setLanguage(savedLanguage);
+        i18n.changeLanguage(savedLanguage);
+        const response = await api.get(`/pdfs/${savedLanguage}`);
+        setPdfUrl(response.data.url);
+      }
+    } catch (error) {
+      alert("Aconteceu um erro, tente novamente", error);
+      setPdfUrl('');
+    }
+  };
+
+  useFocusEffect(
+    React.useCallback(() => {
+      initialize();
+    }, [])
+  );
+
+  useEffect(() => {
+    const fetchPdf = async () => {
+      try {
+        const response = await api.get(`/pdfs/${language}`);
+        setPdfUrl(response.data.url);
       } catch (error) {
         alert("Aconteceu um erro, tente novamente", error);
         setPdfUrl('');
       }
     };
 
-    fetchData();
-  }, []);
+    if (language) {
+      fetchPdf();
+    }
+  }, [language]);
+
   function handleInstitution() {
     navigation.navigate("institution");
   }

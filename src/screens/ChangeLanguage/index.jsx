@@ -15,12 +15,12 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export function ChangeLanguage() {
   const [language, setLanguage] = useState("pt");
-  const [activeButton, setActiveButton] = useState('pt'); // mudar para o idioma selecionado 
+  const [activeButton, setActiveButton] = useState("pt"); // mudar para o idioma selecionado
   const navigation = useNavigation();
 
   useEffect(() => {
     const loadLanguage = async () => {
-      const savedLanguage = await AsyncStorage.getItem('language');
+      const savedLanguage = await AsyncStorage.getItem("language");
       if (savedLanguage) {
         setLanguage(savedLanguage);
         setActiveButton(savedLanguage);
@@ -34,11 +34,9 @@ export function ChangeLanguage() {
     setActiveButton(value);
     setLanguage(value);
     i18n.changeLanguage(value);
-    await AsyncStorage.setItem('language', value);
+    await AsyncStorage.setItem("language", value);
     navigation.navigate("home");
   };
-
-
 
   const texts = [
     "Escolha seu Idioma",
@@ -66,29 +64,29 @@ export function ChangeLanguage() {
         </TypeWriterStyled>
 
         <ButtonLanguage
-        title="Português"
-        imgSrc={FlagBrazil}
-        isActive={activeButton === 'pt'}
-        onPress={() => ChangeLanguage('pt')}
-      />
-      <ButtonLanguage
-        title="English"
-        imgSrc={FlagUsa}
-        isActive={activeButton === 'en'}
-        onPress={() => ChangeLanguage('en')}
-      />
-      <ButtonLanguage
-        title="Français"
-        imgSrc={FlagFrance}
-        isActive={activeButton === 'fr'}
-        onPress={() => ChangeLanguage('fr')}
-      />
-      <ButtonLanguage
-        title="Español"
-        imgSrc={FlagSpain}
-        isActive={activeButton === 'es'}
-        onPress={() => ChangeLanguage('es')}
-      />
+          title="Português"
+          imgSrc={FlagBrazil}
+          isActive={activeButton === "pt"}
+          onPress={() => ChangeLanguage("pt")}
+        />
+        <ButtonLanguage
+          title="English"
+          imgSrc={FlagUsa}
+          isActive={activeButton === "en"}
+          onPress={() => ChangeLanguage("en")}
+        />
+        <ButtonLanguage
+          title="Français"
+          imgSrc={FlagFrance}
+          isActive={activeButton === "fr"}
+          onPress={() => ChangeLanguage("fr")}
+        />
+        <ButtonLanguage
+          title="Español"
+          imgSrc={FlagSpain}
+          isActive={activeButton === "es"}
+          onPress={() => ChangeLanguage("es")}
+        />
       </Container>
     </View>
   );
