@@ -19,13 +19,15 @@ import { TitleWithIcon } from "@components/TitleWithIcon";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect, useState } from "react";
 import api from "../../../../axiosConfig";
+import { getSavedLanguage } from "../../../hooks/useSavedLanguage";
 
 export function InstitutionDetails() {
   const { t, i18n } = useTranslation();
 
   const [institution, setInstitution] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [language, setLanguage] = useState("pt"); //teste para tradução de idioma
+  const [language, setLanguage] = useState("pt");
+
   useEffect(() => {
     const fetchInstitutionDetails = async () => {
       try {
@@ -40,7 +42,12 @@ export function InstitutionDetails() {
         setLoading(false);
       }
     };
-
+      const fetchLanguage = async () => {
+        const savedLanguage = await getSavedLanguage();
+        setLanguage(savedLanguage);
+      };
+  
+      fetchLanguage();
     fetchInstitutionDetails();
   }, []);
 
@@ -48,7 +55,7 @@ export function InstitutionDetails() {
     <View style={{ flex: 1, backgroundColor: theme.Colors.White }}>
       <Header showBackButton />
       <TitleWithIcon
-        title={"Instituição"}
+        title={t("Instituição")}
         icon={
           <Ionicons
             name="business-sharp"

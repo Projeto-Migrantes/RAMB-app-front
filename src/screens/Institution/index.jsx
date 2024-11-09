@@ -4,18 +4,25 @@ import { FlatList, Text, View } from "react-native";
 import { TitleWithIcon } from "@components/TitleWithIcon";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Container, Filter, LoadingIndicator } from "./styles";
-import { SearchBar } from "./components/SearchBar";
 import { CardInstitution } from "./components/CardInstitution";
 import { useNavigation } from "@react-navigation/native";
 import "@utils/i18n";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
-import { use } from "i18next";
 import api from "../../../axiosConfig";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { getSavedLanguage } from "../../hooks/useSavedLanguage";
 
 export function Institution() {
-  const [language, setLanguage] = useState("pt"); //teste para tradução de idioma
+  const [language, setLanguage] = useState("pt");
+  useEffect(() => {
+    const fetchLanguage = async () => {
+      const savedLanguage = await getSavedLanguage();
+      setLanguage(savedLanguage);
+    };
+
+    fetchLanguage();
+  }, []);
 
   const getCategory = (item) => item.Category[`category_${language}`];
   const getDescription = (item) =>
@@ -34,13 +41,6 @@ export function Institution() {
   const { t, i18n } = useTranslation();
   const navigation = useNavigation();
 
-  const saveInstitutionId = async (institutionId) => {
-    try {
-      await AsyncStorage.setItem("institutionId", institutionId.toString());
-    } catch (error) {
-      console.error("Erro ao salvar o Institution ID:", error);
-    }
-  };
   async function handleInstitutionDetails(id) {
     try {
       await AsyncStorage.setItem("institutionId", id.toString());
@@ -91,9 +91,7 @@ export function Institution() {
 
   useEffect(() => {
     setItems([
-      { label: `${categories[0]?.[`category_${language}`]}`, 
-        value: "0" 
-      },
+      { label: `${categories[0]?.[`category_${language}`]}`, value: "0" },
       {
         label: `${categories[1]?.[`category_${language}`]}`,
         value: `${categories[1]?.id}`,

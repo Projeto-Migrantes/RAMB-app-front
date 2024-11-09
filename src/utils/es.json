@@ -30,6 +30,33 @@
     "Selecionar tipo de Instituição": "Seleccionar tipo de Institución",
 
 
-    "Entre em contato com um dos postos de atendimento": "Póngase en contacto con uno de los puestos de atención"
+    "Entre em contato com um dos postos de atendimento": "Póngase en contacto con uno de los puestos de atención",
+    "Instituição": "Institución",
+    "Restrição ou Requisito": "Restricción o Requisito",
+    "Data de Nascimento": "Fecha de Nacimiento",
+    "Data não disponível": "Fecha no disponible",
+    "Endereço": "Dirección",
+    "Documento De Identificação": "Documento de Identificación",
+    "Nome Social": "Nombre Social",
+    "Gênero": "Género",
+    "Status Migratório": "Estatus Migratorio",
+    "Escolaridade": "Escolaridad",
+    "Motivo da Migração": "Motivo de la Migración",
+    "Deseja Editar Informações?": "¿Desea Editar Información?",
+    "Sair": "Salir",
+    "Nacionalidade": "Nacionalidad",
+    
+    "Nome": "Nombre",
+    "Assunto": "Asunto",
+    "Mensagem": "Mensaje",
+    "Enviar": "Enviar",
+    "Digite Aqui": "Escribe aquí",
+
+    "Nome é obrigatório": "Nombre es obligatorio",
+    "Email inválido": "Correo electrónico inválido",
+    "Telefone deve ter pelo menos 10 dígitos": "El teléfono debe tener al menos 10 dígitos",
+    "Telefone deve ter um formato válido": "El teléfono debe tener un formato válido",
+    "Assunto é obrigatório": "Asunto es obligatorio",
+    "Mensagem é obrigatória": "Mensaje es obligatorio"
   }
 }

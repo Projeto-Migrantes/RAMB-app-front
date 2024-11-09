@@ -28,8 +28,38 @@
     "Público Alvo": "Public Cible",
     "Idioma falado pela Equipe": "Langue parlée par l'équipe",
     "Selecionar tipo de Instituição": "Sélectionner le type d'institution",
+    
 
 
-    "Entre em contato com um dos postos de atendimento": "Contactez l'un des postes de service"
+    "Entre em contato com um dos postos de atendimento": "Contactez l'un des postes de service",
+    "Instituição": "Institution",
+    "Restrição ou Requisito": "Restriction ou Exigence",
+
+    "Data de Nascimento": "Date de Naissance",
+    "Data não disponível": "Date non disponible",
+    "Endereço": "Adresse",
+    "Documento De Identificação": "Document d'Identification",
+    "Nome Social": "Nom Social",
+    "Gênero": "Genre",
+    "Status Migratório": "Statut Migratoire",
+    "Escolaridade": "Niveau d'Éducation",
+    "Motivo da Migração": "Raison de la Migration",
+    "Deseja Editar Informações?": "Voulez-vous Modifier les Informations?",
+    "Sair": "Déconnexion",
+    "Nacionalidade": "Nationalité",
+
+    
+    "Nome": "Nom",
+    "Assunto": "Sujet",
+    "Mensagem": " Message",
+    "Enviar": "Envoyer",
+    "Digite Aqui": "Tapez ici",
+
+    "Nome é obrigatório": "Nom est obligatoire",
+    "Email inválido": "Email invalide",
+    "Telefone deve ter pelo menos 10 dígitos": "Le téléphone doit comporter au moins 10 chiffres",
+    "Telefone deve ter um formato válido": "Le téléphone doit avoir un format valide",
+    "Assunto é obrigatório": "Le sujet est obligatoire",
+    "Mensagem é obrigatória": "Le message est obligatoire"
   }
 }

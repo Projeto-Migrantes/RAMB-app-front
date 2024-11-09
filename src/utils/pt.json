@@ -29,6 +29,37 @@
     "Idioma falado pela Equipe": "Idioma falado pela Equipe",
     "Selecionar tipo de Instituição": "Selecionar tipo de Instituição",
 
-    "Entre em contato com um dos postos de atendimento": "Entre em contato com um dos postos de atendimento"
+    "Entre em contato com um dos postos de atendimento": "Entre em contato com um dos postos de atendimento",
+    "Instituição": "Instituição",
+    "Restrição ou Requisito": "Restrição ou Requisito",
+
+    "Data de Nascimento": "Data de Nascimento",
+    "Data não disponível": "Data não disponível",
+    "Endereço": "Endereço",
+    "Documento De Identificação": "Documento De Identificação",
+    "Nome Social": "Nome Social",
+    "Gênero": "Gênero",
+    "Status Migratório": "Status Migratório",
+    "Escolaridade": "Escolaridade",
+    "Motivo da Migração": "Motivo da Migração",
+    "Deseja Editar Informações?": "Deseja Editar Informações?",
+    "Sair": "Sair",
+    "Nacionalidade": "Nacionalidade",
+
+    "Nome": "Nome",
+    "Assunto": "Assunto",
+    "Mensagem": "Mensagem",
+    "Enviar": "Enviar",
+    "Digite Aqui": "Digite Aqui",
+    
+    "Nome é obrigatório": "Nome é obrigatório",
+    "Email inválido": "Email inválido",
+    "Telefone deve ter pelo menos 10 dígitos": "Telefone deve ter pelo menos 10 dígitos",
+    "Telefone deve ter um formato válido": "Telefone deve ter um formato válido",
+    "Assunto é obrigatório": "Assunto é obrigatório",
+    "Mensagem é obrigatória": "Mensagem é obrigatória"
+
+
+
   }
 }

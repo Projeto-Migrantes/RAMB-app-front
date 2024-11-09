@@ -35,6 +35,12 @@ export function Login() {
     navigation.navigate("help");
   }
 
+  
+  function handleContact() {
+    navigation.navigate("contact");
+  }
+  
+
   const SignIn = async () => {
     try {
       setLoading(true);
@@ -80,7 +86,7 @@ export function Login() {
           onPress={SignIn}
           disabled={loading}
         />
-        <ForgotPassword>{t("Esqueci minha senha")}</ForgotPassword>
+        <ForgotPassword onPress={handleContact}>{t("Esqueci minha senha")}</ForgotPassword>
         <Button variant="secondary" title={t("Precisa de Ajuda?")} onPress={handleHelp} />
       </Container>
     </View>

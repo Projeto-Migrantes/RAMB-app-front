@@ -14,28 +14,32 @@ import { useTranslation } from "react-i18next";
 import "@utils/i18n";
 import { useEffect, useState } from "react";
 import api from "../../../axiosConfig";
+import { getSavedLanguage } from "../../hooks/useSavedLanguage";
 
 export function Home() {
   const navigation = useNavigation();
   const { t, i18n } = useTranslation();
-  const [language, setLanguage] = useState('pt'); //teste para tradução de idioma
+  const [language, setLanguage] = useState("pt");
   const [pdfUrl, setPdfUrl] = useState('');
-  useEffect(() => {
-    const fetchPDF = async () => {
-      try {
-        const response = await api.get(
-          `/pdfs/${language}`
-        );
-        setPdfUrl(response.data.url);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const savedLanguage = await getSavedLanguage();
+        setLanguage(savedLanguage);
+
+        if (savedLanguage) {
+          const response = await api.get(`/pdfs/${savedLanguage}`);
+          setPdfUrl(response.data.url);
+        }
       } catch (error) {
+        alert("Aconteceu um erro, tente novamente", error);
         setPdfUrl('');
       }
     };
-  
-    fetchPDF();
-  }, []);
 
+    fetchData();
+  }, []);
   function handleInstitution() {
     navigation.navigate("institution");
   }

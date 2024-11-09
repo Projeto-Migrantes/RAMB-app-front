@@ -29,6 +29,34 @@
     "Idioma falado pela Equipe": "Language Spoken by the Team",
     "Selecionar tipo de Instituição": "Select type of Institution",
 
-    "Entre em contato com um dos postos de atendimento": "Contact one of the service desks"
+    "Entre em contato com um dos postos de atendimento": "Contact one of the service desks",
+    "Instituição": "Institution",
+    "Restrição ou Requisito": "Restriction or Requirement",
+    "Data de Nascimento": "Date of Birth",
+    "Data não disponível": "Date Not Available",
+    "Endereço": "Address",
+    "Documento De Identificação": "Identification Document",
+    "Nome Social": "Social Name",
+    "Gênero": "Gender",
+    "Status Migratório": "Migration Status",
+    "Escolaridade": "Education Level",
+    "Motivo da Migração": "Reason for Migration",
+    "Deseja Editar Informações?": "Do You Want to Edit Information?",
+    "Sair": "Logout",
+    "Nacionalidade": "Nationality",
+
+    
+    "Nome": " Name",
+    "Assunto": "Subject",
+    "Mensagem": "Message",
+    "Enviar": "Send",
+    "Digite Aqui": "Type Here",
+    
+    "Nome é obrigatório": "Name is required",
+    "Email inválido": "Invalid email",
+    "Telefone deve ter pelo menos 10 dígitos": "Phone number must have at least 10 digits",
+    "Telefone deve ter um formato válido": "Phone number must have a valid format",
+    "Assunto é obrigatório": "Subject is required",
+    "Mensagem é obrigatória": "Message is required"
   }
 }
