@@ -54,6 +54,10 @@ export function Institution() {
     const fetchInstitutions = async () => {
       try {
         setLoading(true);
+        const token = await AsyncStorage.getItem("token");
+        if (!token) {
+          navigation.navigate("login")
+        }
         const responseCategory = await api.get(
           `/institutions/category/${categoryId}`
         );
@@ -69,6 +73,7 @@ export function Institution() {
           setErrorMessage("Erro ao buscar instituições");
         }
         setInstitutionsCategory([]);
+        navigation.navigate("home");
       } finally {
         setLoading(false);
       }

@@ -20,9 +20,11 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect, useState } from "react";
 import api from "../../../../axiosConfig";
 import { getSavedLanguage } from "../../../hooks/useSavedLanguage";
+import { useNavigation } from "@react-navigation/native";
 
 export function InstitutionDetails() {
   const { t, i18n } = useTranslation();
+  const navigation = useNavigation();
 
   const [institution, setInstitution] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -31,6 +33,10 @@ export function InstitutionDetails() {
   useEffect(() => {
     const fetchInstitutionDetails = async () => {
       try {
+        const token = await AsyncStorage.getItem("token");
+        if (!token) {
+          navigation.navigate("login")
+        }
         setLoading(true);
         const id = await AsyncStorage.getItem("institutionId");
         const response = await api.get(`/institutions/${id}`);
@@ -38,6 +44,7 @@ export function InstitutionDetails() {
         setInstitution(response.data.institution);
       } catch (error) {
         alert("Aconteceu um erro, tente novamente", error);
+        navigation.navigate("institution");
       } finally {
         setLoading(false);
       }

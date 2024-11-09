@@ -48,6 +48,10 @@ export function Home() {
   useEffect(() => {
     const fetchPdf = async () => {
       try {
+        const token = await AsyncStorage.getItem("token");
+        if (!token) {
+          navigation.navigate("login")
+        }
         const response = await api.get(`/pdfs/${language}`);
         setPdfUrl(response.data.url);
       } catch (error) {

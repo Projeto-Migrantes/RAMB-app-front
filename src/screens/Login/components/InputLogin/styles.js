@@ -9,7 +9,8 @@ export const SearchContainer = styled.View`
   border-width: 1px;
   border-color: ${({ theme }) => theme.Colors.Purple};
   border-radius: 999px;
-  padding: 10px 20px;
+  padding: 10px 15px;
+  position: relative;
 `;
 
 export const Input = styled(TextInput)`
@@ -21,5 +22,11 @@ export const Input = styled(TextInput)`
     font-family: ${theme.Font_Family.Regular};
     font-size: ${theme.Font_Size.MD}px;
   `};
+`;
+
+export const Test = styled.View`
+  position: absolute;
+  right: 10px;
+  top: 50%;
 `;
 

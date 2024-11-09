@@ -2,11 +2,7 @@ import { Button } from "@components/Button";
 import { Header } from "@components/Header";
 import theme from "@theme/index";
 import {
-  ActivityIndicator,
-  FlatList,
-  ScrollView,
-  Text,
-  View,
+  ScrollView, View
 } from "react-native";
 import {
   Container,
@@ -15,8 +11,7 @@ import {
   EditOptionsText,
   Icon,
   LoadingIndicator,
-  UserName,
-  ViewDiv,
+  UserName
 } from "./styles";
 import { UserDetails } from "./components/UserDetails";
 import { useNavigation } from "@react-navigation/native";
@@ -34,6 +29,15 @@ export function Profile() {
     navigation.navigate("contact");
   }
 
+  async function handleLongout() {
+    try {
+      await AsyncStorage.removeItem("token");
+      navigation.navigate("login");
+    } catch (error) {
+      console.error("Erro ao fazer Longout");
+    }
+  }
+
   const [profile, setProfile] = useState([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -41,19 +45,24 @@ export function Profile() {
       try {
         setLoading(true);
         const token = await AsyncStorage.getItem("token");
-        if (token !== null) {
-          const response = await api.get("/migrants/profile", {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
-          setProfile(response.data.migrant);
-        } else {
-          alert("Token não encontrado");
+        if (!token) {
           navigation.navigate("login");
         }
+        const response = await api.get("/migrants/profile", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        setProfile(response.data.migrant);
       } catch (error) {
+        if (error.response.status === 400) {
+          alert("Sessão expirada, faça login novamente");
+          navigation.navigate("login");
+          return;
+        }
         alert("Aconteceu um erro, tente novamente mais tarde");
+        navigation.navigate("home");
       } finally {
         setLoading(false);
       }
@@ -121,7 +130,7 @@ export function Profile() {
               {t("Deseja Editar Informações?")} {"\n"} {t("Entre em Contato")}
             </EditOptionsText>
           </EditOptions>
-          <Button variant="terciary" title={t("Sair")} />
+          <Button variant="terciary" title={t("Sair")} onPress={handleLongout}  />
         </Container>
       </ScrollView>
     </View>
