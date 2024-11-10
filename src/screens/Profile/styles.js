@@ -4,8 +4,17 @@ import { TouchableOpacity } from "react-native";
 
 export const Container = styled.View`
   align-items: center;
+  padding: 0 30px;
   gap: 16px;
   background-color: ${({ theme }) => theme.Colors.White};
+  margin-bottom: 24px;
+`;
+export const Content = styled.View`
+display: flex;
+flex-direction: column;
+gap: 16px;
+padding: 0 16px;
+
 `;
 
 export const UserName = styled.Text`
@@ -30,6 +39,14 @@ export const EditOptionsText = styled.Text`
   text-align: center;
 `;
 
+export const LoadingIndicator = styled.ActivityIndicator.attrs(({ theme }) => ({
+  size: "large",
+  color: theme.Colors.Blue,
+}))`
+  width: 500px;
+  height: 130px;
+`;
+
 export const Icon = styled(Ionicons).attrs(({ theme }) => ({
   size: 130,
   color: theme.Colors.Purple,
@@ -37,3 +54,4 @@ export const Icon = styled(Ionicons).attrs(({ theme }) => ({
   width: 130px;
   height: 130px;
 `;
+

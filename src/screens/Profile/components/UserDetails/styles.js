@@ -3,6 +3,7 @@ import styled, { css } from "styled-components/native";
 export const Container = styled.View`
   flex-direction: row;
   gap: 8px;
+  flex-wrap: wrap;
 `;
 export const Title = styled.Text`
   ${({ theme }) => css`

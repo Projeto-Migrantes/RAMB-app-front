@@ -1,0 +1,70 @@
+{
+  "translation": {
+    "Use login e senha fornecidos pelo posto de atendimento.": "Utilisez le login et le mot de passe fournis par le poste de service.",
+    "Entrar": "Se connecter",
+    "Esqueci minha senha": "J'ai oublié mon mot de passe",
+    "Precisa de Ajuda?": "Besoin d'aide ?",
+    "Digite seu Email": "Entrez votre email",
+    "Digite sua Senha": "Entrez votre mot de passe",
+
+    "Seja bem vindo(a)!": "Bienvenue !",
+    "Plataforma de Apoio ao Migrante na Bahia": "Plateforme de soutien aux migrants en Bahia",
+    "Instituições de Apoio": "Institutions de soutien",
+    "Manual Migrante": "Manuel du migrant",
+    "Entre em Contato": "Contactez-nous",
+    "Postos": "Postes",
+    "Idioma": "Langue",
+    "Perfil": "Profil",
+    "Pesquisar": "Recherche",
+
+    "Localização": "Localisation",
+    "Ver no Mapa": "Voir sur la Carte",
+    "Telefone": "Téléphone",
+    "E-mail": "E-mail",
+    "Site": "Site Web",
+    "Horário de Funcionamento": "Heures d'ouverture",
+    "Serviços Oferecidos": "Services Offerts",
+    "Custo do Serviço": "Coût du Service",
+    "Público Alvo": "Public Cible",
+    "Idioma falado pela Equipe": "Langue parlée par l'équipe",
+    "Selecionar tipo de Instituição": "Sélectionner le type d'institution",
+    
+
+
+    "Entre em contato com um dos postos de atendimento": "Contactez l'un des postes de service",
+    "Instituição": "Institution",
+    "Restrição ou Requisito": "Restriction ou Exigence",
+
+    "Data de Nascimento": "Date de Naissance",
+    "Data não disponível": "Date non disponible",
+    "Endereço": "Adresse",
+    "Documento De Identificação": "Document d'Identification",
+    "Nome Social": "Nom Social",
+    "Gênero": "Genre",
+    "Status Migratório": "Statut Migratoire",
+    "Escolaridade": "Niveau d'Éducation",
+    "Motivo da Migração": "Raison de la Migration",
+    "Deseja Editar Informações?": "Voulez-vous Modifier les Informations?",
+    "Sair": "Déconnexion",
+    "Nacionalidade": "Nationalité",
+
+    
+    "Nome": "Nom",
+    "Assunto": "Sujet",
+    "Mensagem": " Message",
+    "Enviar": "Envoyer",
+
+    "Digite seu nome": "Entrez votre nom",
+    "Digite seu email": "Entrez votre email",
+    "Digite seu telefone": "Entrez votre téléphone",
+    "Digite o assunto da mensagem": "Entrez le sujet du message",
+    "Digite a mensagem": "Entrez le message",
+
+    "Nome é obrigatório": "Nom est obligatoire",
+    "Email inválido": "Email invalide",
+    "Telefone deve ter pelo menos 10 dígitos": "Le téléphone doit comporter au moins 10 chiffres",
+    "Telefone deve ter um formato válido": "Le téléphone doit avoir un format valide",
+    "Assunto é obrigatório": "Le sujet est obligatoire",
+    "Mensagem é obrigatória": "Le message est obligatoire"
+  }
+}

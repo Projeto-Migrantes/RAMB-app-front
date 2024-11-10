@@ -1,0 +1,67 @@
+{
+  "translation": {
+    "Use login e senha fornecidos pelo posto de atendimento.": "Use the login and password provided by the service desk.",
+    "Entrar": "Sign in",
+    "Esqueci minha senha": "Forgot my password",
+    "Precisa de Ajuda?": "Need Help?",
+    "Digite seu Email": "Enter your Email",
+    "Digite sua Senha": "Enter your Password",
+
+    "Seja bem vindo(a)!": "Welcome!",
+    "Plataforma de Apoio ao Migrante na Bahia": "Migrant Support Platform in Bahia",
+    "Instituições de Apoio": "Support Institutions",
+    "Manual Migrante": "Migrant Manual",
+    "Entre em Contato": "Contact Us",
+    "Postos": "Stations",
+    "Idioma": "Language",
+    "Perfil": "Profile",
+    "Pesquisar": "Search",
+
+    "Localização": "Location",
+    "Ver no Mapa": "View on Map",
+    "Telefone": "Phone",
+    "E-mail": "Email",
+    "Site": "Website",
+    "Horário de Funcionamento": "Opening Hours",
+    "Serviços Oferecidos": "Services Offered",
+    "Custo do Serviço": "Service Cost",
+    "Público Alvo": "Target Audience",
+    "Idioma falado pela Equipe": "Language Spoken by the Team",
+    "Selecionar tipo de Instituição": "Select type of Institution",
+
+    "Entre em contato com um dos postos de atendimento": "Contact one of the service desks",
+    "Instituição": "Institution",
+    "Restrição ou Requisito": "Restriction or Requirement",
+    "Data de Nascimento": "Date of Birth",
+    "Data não disponível": "Date Not Available",
+    "Endereço": "Address",
+    "Documento De Identificação": "Identification Document",
+    "Nome Social": "Social Name",
+    "Gênero": "Gender",
+    "Status Migratório": "Migration Status",
+    "Escolaridade": "Education Level",
+    "Motivo da Migração": "Reason for Migration",
+    "Deseja Editar Informações?": "Do You Want to Edit Information?",
+    "Sair": "Logout",
+    "Nacionalidade": "Nationality",
+
+    
+    "Nome": " Name",
+    "Assunto": "Subject",
+    "Mensagem": "Message",
+    "Enviar": "Send",
+
+    "Digite seu nome": "Enter your name",
+    "Digite seu email": "Enter your email",
+    "Digite seu telefone": "Enter your phone number",
+    "Digite o assunto da mensagem": "Enter the subject of the message",
+    "Digite a mensagem": "Enter the message",
+    
+    "Nome é obrigatório": "Name is required",
+    "Email inválido": "Invalid email",
+    "Telefone deve ter pelo menos 10 dígitos": "Phone number must have at least 10 digits",
+    "Telefone deve ter um formato válido": "Phone number must have a valid format",
+    "Assunto é obrigatório": "Subject is required",
+    "Mensagem é obrigatória": "Message is required"
+  }
+}

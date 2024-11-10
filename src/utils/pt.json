@@ -1,0 +1,70 @@
+{
+  "translation": {
+    "Use login e senha fornecidos pelo posto de atendimento.": "Use login e senha fornecidos pelo posto de atendimento.",
+    "Entrar": "Entrar",
+    "Esqueci minha senha": "Esqueci minha senha",
+    "Precisa de Ajuda?": "Precisa de Ajuda?",
+    "Digite seu Email": "Digite seu Email",
+    "Digite sua Senha": "Digite sua Senha",
+
+    "Seja bem vindo(a)!": "Seja bem vindo(a)!",
+    "Plataforma de Apoio ao Migrante na Bahia": "Plataforma de Apoio ao Migrante na Bahia",
+    "Instituições de Apoio": "Instituições de Apoio",
+    "Manual Migrante": "Manual Migrante",
+    "Entre em Contato": "Entre em Contato",
+    "Postos": "Postos",
+    "Idioma": "Idioma",
+    "Perfil": "Perfil",
+    "Pesquisar": "Pesquisar",
+
+    "Localização": "Localização",
+    "Ver no Mapa": "Ver no Mapa",
+    "Telefone": "Telefone",
+    "E-mail": "E-mail",
+    "Site": "Site",
+    "Horário de Funcionamento": "Horário de Funcionamento",
+    "Serviços Oferecidos": "Serviços Oferecidos",
+    "Custo do Serviço": "Custo do Serviço",
+    "Público Alvo": "Público Alvo",
+    "Idioma falado pela Equipe": "Idioma falado pela Equipe",
+    "Selecionar tipo de Instituição": "Selecionar tipo de Instituição",
+
+    "Entre em contato com um dos postos de atendimento": "Entre em contato com um dos postos de atendimento",
+    "Instituição": "Instituição",
+    "Restrição ou Requisito": "Restrição ou Requisito",
+
+    "Data de Nascimento": "Data de Nascimento",
+    "Data não disponível": "Data não disponível",
+    "Endereço": "Endereço",
+    "Documento De Identificação": "Documento De Identificação",
+    "Nome Social": "Nome Social",
+    "Gênero": "Gênero",
+    "Status Migratório": "Status Migratório",
+    "Escolaridade": "Escolaridade",
+    "Motivo da Migração": "Motivo da Migração",
+    "Deseja Editar Informações?": "Deseja Editar Informações?",
+    "Sair": "Sair",
+    "Nacionalidade": "Nacionalidade",
+
+    "Nome": "Nome",
+    "Assunto": "Assunto",
+    "Mensagem": "Mensagem",
+    "Enviar": "Enviar",
+
+    "Digite seu nome": "Digite seu nome",
+    "Digite seu email": "Digite seu email",
+    "Digite seu telefone": "Digite seu telefone",
+    "Digite o assunto da mensagem": "Digite o assunto da mensagem",
+    "Digite a mensagem": "Digite a mensagem",
+    
+    "Nome é obrigatório": "Nome é obrigatório",
+    "Email inválido": "Email inválido",
+    "Telefone deve ter pelo menos 10 dígitos": "Telefone deve ter pelo menos 10 dígitos",
+    "Telefone deve ter um formato válido": "Telefone deve ter um formato válido",
+    "Assunto é obrigatório": "Assunto é obrigatório",
+    "Mensagem é obrigatória": "Mensagem é obrigatória"
+
+
+
+  }
+}
