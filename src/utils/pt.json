@@ -62,7 +62,9 @@
     "Telefone deve ter pelo menos 10 dígitos": "Telefone deve ter pelo menos 10 dígitos",
     "Telefone deve ter um formato válido": "Telefone deve ter um formato válido",
     "Assunto é obrigatório": "Assunto é obrigatório",
-    "Mensagem é obrigatória": "Mensagem é obrigatória"
+    "Mensagem é obrigatória": "Mensagem é obrigatória",
+    "Erro ao realizar login. Por favor, tente novamente." : "Erro ao realizar login. Por favor, tente novamente.",
+    "Mudar Idioma": "Mudar Idioma"
 
 
 

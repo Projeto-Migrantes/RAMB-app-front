@@ -65,6 +65,8 @@
     "Telefone deve ter pelo menos 10 dígitos": "Le téléphone doit comporter au moins 10 chiffres",
     "Telefone deve ter um formato válido": "Le téléphone doit avoir un format valide",
     "Assunto é obrigatório": "Le sujet est obligatoire",
-    "Mensagem é obrigatória": "Le message est obligatoire"
+    "Mensagem é obrigatória": "Le message est obligatoire",
+    "Erro ao realizar login. Por favor, tente novamente." : "Erreur lors de la connexion. Veuillez réessayer.",
+    "Mudar Idioma": "Changer de Langue"
   }
 }

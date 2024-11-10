@@ -38,7 +38,7 @@ export function Login() {
       await saveToken(token);
       navigation.navigate("home");
     } catch (error) {
-      alert("Erro ao realizar login. Por favor, tente novamente.");
+      alert(t("Erro ao realizar login. Por favor, tente novamente."));
     } finally {
       setLoading(false);
     }
@@ -47,7 +47,7 @@ export function Login() {
   useFocusEffect(
     React.useCallback(() => {
       const onBackPress = () => {
-        return true; // Retornar true para desabilitar o botão de voltar
+        return true; 
       };
 
       BackHandler.addEventListener("hardwareBackPress", onBackPress);
@@ -63,6 +63,10 @@ export function Login() {
 
   function handleContact() {
     navigation.navigate("contact");
+  }
+
+  function handleChangeLanguage() {
+    navigation.navigate("changeLanguage");
   }
   return (
     <View style={{ flex: 1, backgroundColor: theme.Colors.White }}>
@@ -101,6 +105,11 @@ export function Login() {
           variant="secondary"
           title={t("Precisa de Ajuda?")}
           onPress={handleHelp}
+        />
+        <Button
+          variant="secondary"
+          title={t("Mudar Idioma")}
+          onPress={handleChangeLanguage}
         />
       </Container>
     </View>

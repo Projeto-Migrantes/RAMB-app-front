@@ -62,6 +62,8 @@
     "Telefone deve ter pelo menos 10 dígitos": "Phone number must have at least 10 digits",
     "Telefone deve ter um formato válido": "Phone number must have a valid format",
     "Assunto é obrigatório": "Subject is required",
-    "Mensagem é obrigatória": "Message is required"
+    "Mensagem é obrigatória": "Message is required",
+    "Erro ao realizar login. Por favor, tente novamente." : "Error logging in. Please try again.",
+    "Mudar Idioma": "Change Language"
   }
 }

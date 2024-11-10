@@ -1,11 +1,13 @@
 {
   "expo": {
-    "name": "Mhelp-app-front",
-    "slug": "Mhelp-app-front",
-    "version": "1.0.0",
+    "name": "RAMB",
+    "slug": "RAMB",
+    "version": "1.0.2",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
+    "icon": "./assets/icon.svg",
     "splash": {
+      "image": "./assets/logoBackground.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -13,15 +15,20 @@
       "supportsTablet": true
     },
     "android": {
+      "versionCode": 2,
       "adaptiveIcon": {
         "backgroundColor": "#ffffff"
       },
       "package": "ramb.app"
     },
-    "web": {
-    },
+    "web": {},
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "4d76cf5b-3783-479b-afd1-0da1383d5b50"
+      }
+    }
   }
 }
