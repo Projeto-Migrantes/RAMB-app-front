@@ -6,6 +6,7 @@ export const Container = styled.View`
   justify-content: center;
   padding: 0px 20px;
   gap: 10px;
+  flex: 1;  
 `;
 
 export const Filter = styled(DropDownPicker)`
