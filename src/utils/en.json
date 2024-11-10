@@ -64,6 +64,7 @@
     "Assunto é obrigatório": "Subject is required",
     "Mensagem é obrigatória": "Message is required",
     "Erro ao realizar login. Por favor, tente novamente." : "Error logging in. Please try again.",
-    "Mudar Idioma": "Change Language"
+    "Mudar Idioma": "Change Language",
+    "Nenhuma instituição encontrada.": "No institution found."
   }
 }

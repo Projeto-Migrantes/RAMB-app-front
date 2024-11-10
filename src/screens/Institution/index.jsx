@@ -1,6 +1,6 @@
 import { Header } from "@components/Header";
 import theme from "@theme/index";
-import { FlatList, Text, View } from "react-native";
+import { FlatList, ScrollView, Text, View } from "react-native";
 import { TitleWithIcon } from "@components/TitleWithIcon";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Container, Filter, LoadingIndicator } from "./styles";
@@ -216,20 +216,23 @@ export function Institution() {
             {errorMessage ? (
               <Text>{t(errorMessage)}</Text>
             ) : (
-              <FlatList
-                data={institutionsCategory}
-                keyExtractor={(item) => item.id}
-                renderItem={({ item }) => (
-                  <CardInstitution
-                    category={getCategory(item)}
-                    name={item.name}
-                    description={getDescription(item)}
-                    onPress={() => handleInstitutionDetails(item.id)}
-                  />
-                )}
-                showsVerticalScrollIndicator={false}
-                contentContainerStyle={{ paddingBottom: 50, gap: 15 }}
-              />
+                <FlatList
+                  data={institutionsCategory}
+                  keyExtractor={(item) => item.id}
+                  renderItem={({ item }) => (
+                    <CardInstitution
+                      category={getCategory(item)}
+                      name={item.name}
+                      description={getDescription(item)}
+                      onPress={() => handleInstitutionDetails(item.id)}
+                    />
+                  )}
+                  showsVerticalScrollIndicator={false}
+                  contentContainerStyle={{ paddingBottom: 50, gap: 15 }}
+                  ListEmptyComponent={
+                    <Text>{t("Nenhuma instituição encontrada.")}</Text>
+                  }
+                />
             )}
           </>
         )}

@@ -67,6 +67,7 @@
     "Assunto é obrigatório": "Le sujet est obligatoire",
     "Mensagem é obrigatória": "Le message est obligatoire",
     "Erro ao realizar login. Por favor, tente novamente." : "Erreur lors de la connexion. Veuillez réessayer.",
-    "Mudar Idioma": "Changer de Langue"
+    "Mudar Idioma": "Changer de Langue",
+    "Nenhuma instituição encontrada.": "Aucune institution trouvée."
   }
 }
