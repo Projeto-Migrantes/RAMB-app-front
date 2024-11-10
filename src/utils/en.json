@@ -50,7 +50,12 @@
     "Assunto": "Subject",
     "Mensagem": "Message",
     "Enviar": "Send",
-    "Digite Aqui": "Type Here",
+
+    "Digite seu nome": "Enter your name",
+    "Digite seu email": "Enter your email",
+    "Digite seu telefone": "Enter your phone number",
+    "Digite o assunto da mensagem": "Enter the subject of the message",
+    "Digite a mensagem": "Enter the message",
     
     "Nome é obrigatório": "Name is required",
     "Email inválido": "Invalid email",

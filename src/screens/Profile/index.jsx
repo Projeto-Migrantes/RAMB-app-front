@@ -1,9 +1,7 @@
 import { Button } from "@components/Button";
 import { Header } from "@components/Header";
 import theme from "@theme/index";
-import {
-  ScrollView, View
-} from "react-native";
+import { ScrollView, View } from "react-native";
 import {
   Container,
   Content,
@@ -11,7 +9,7 @@ import {
   EditOptionsText,
   Icon,
   LoadingIndicator,
-  UserName
+  UserName,
 } from "./styles";
 import { UserDetails } from "./components/UserDetails";
 import { useNavigation } from "@react-navigation/native";
@@ -25,6 +23,9 @@ export function Profile() {
   const { t, i18n } = useTranslation();
   const navigation = useNavigation();
 
+  const [profile, setProfile] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   function handleContact() {
     navigation.navigate("contact");
   }
@@ -37,9 +38,6 @@ export function Profile() {
       console.error("Erro ao fazer Longout");
     }
   }
-
-  const [profile, setProfile] = useState([]);
-  const [loading, setLoading] = useState(false);
   useEffect(() => {
     const getProfile = async () => {
       try {
@@ -130,7 +128,11 @@ export function Profile() {
               {t("Deseja Editar Informações?")} {"\n"} {t("Entre em Contato")}
             </EditOptionsText>
           </EditOptions>
-          <Button variant="terciary" title={t("Sair")} onPress={handleLongout}  />
+          <Button
+            variant="terciary"
+            title={t("Sair")}
+            onPress={handleLongout}
+          />
         </Container>
       </ScrollView>
     </View>

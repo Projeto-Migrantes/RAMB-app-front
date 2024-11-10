@@ -53,7 +53,12 @@
     "Assunto": "Sujet",
     "Mensagem": " Message",
     "Enviar": "Envoyer",
-    "Digite Aqui": "Tapez ici",
+
+    "Digite seu nome": "Entrez votre nom",
+    "Digite seu email": "Entrez votre email",
+    "Digite seu telefone": "Entrez votre téléphone",
+    "Digite o assunto da mensagem": "Entrez le sujet du message",
+    "Digite a mensagem": "Entrez le message",
 
     "Nome é obrigatório": "Nom est obligatoire",
     "Email inválido": "Email invalide",

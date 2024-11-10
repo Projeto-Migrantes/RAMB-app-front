@@ -1,8 +1,8 @@
 import { Button } from "@components/Button";
 import { Header } from "@components/Header";
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import theme from "@theme/index";
-import { Text, View } from "react-native";
+import { BackHandler, View } from "react-native";
 import { TitleWithDescription } from "@components/TitleWithDescription";
 import { Container, ForgotPassword } from "./styles";
 import { useTranslation } from "react-i18next";
@@ -10,18 +10,16 @@ import "@utils/i18n";
 import { InputLogin } from "./components/InputLogin";
 import Fontisto from "@expo/vector-icons/Fontisto";
 import Feather from "@expo/vector-icons/Feather";
-import { useState } from "react";
+import React, { useState } from "react";
 import api from "../../../axiosConfig";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Loading } from "../../components/Loading/Index";
 
-// const email = "alex.oliveira@example.com";
-// const password = "senhaForte123"
 const saveToken = async (token) => {
   try {
     await AsyncStorage.setItem("token", token);
   } catch (error) {
-    alert("Erro ao realizar login. Por favor, tente novamente.")
+    alert("Erro ao realizar login. Por favor, tente novamente.");
   }
 };
 export function Login() {
@@ -31,16 +29,6 @@ export function Login() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  function handleHelp() {
-    navigation.navigate("help");
-  }
-
-  
-  function handleContact() {
-    navigation.navigate("contact");
-  }
-  
-
   const SignIn = async () => {
     try {
       setLoading(true);
@@ -48,17 +36,37 @@ export function Login() {
       const authHeader = await response.headers["authorization"];
       const token = authHeader.split(" ")[1];
       await saveToken(token);
-      setLoading(false);
       navigation.navigate("home");
     } catch (error) {
       alert("Erro ao realizar login. Por favor, tente novamente.");
+    } finally {
       setLoading(false);
     }
   };
 
+  useFocusEffect(
+    React.useCallback(() => {
+      const onBackPress = () => {
+        return true; // Retornar true para desabilitar o botão de voltar
+      };
+
+      BackHandler.addEventListener("hardwareBackPress", onBackPress);
+
+      return () => {
+        BackHandler.removeEventListener("hardwareBackPress", onBackPress);
+      };
+    }, [])
+  );
+  function handleHelp() {
+    navigation.navigate("help");
+  }
+
+  function handleContact() {
+    navigation.navigate("contact");
+  }
   return (
     <View style={{ flex: 1, backgroundColor: theme.Colors.White }}>
-      <Header showBackButton />
+      <Header />
       <TitleWithDescription
         title="Login"
         description={t(
@@ -82,12 +90,18 @@ export function Login() {
         />
         <Button
           variant="primary"
-          title={loading ? <Loading/> : t("Entrar")}
+          title={loading ? <Loading /> : t("Entrar")}
           onPress={SignIn}
           disabled={loading}
         />
-        <ForgotPassword onPress={handleContact}>{t("Esqueci minha senha")}</ForgotPassword>
-        <Button variant="secondary" title={t("Precisa de Ajuda?")} onPress={handleHelp} />
+        <ForgotPassword onPress={handleContact}>
+          {t("Esqueci minha senha")}
+        </ForgotPassword>
+        <Button
+          variant="secondary"
+          title={t("Precisa de Ajuda?")}
+          onPress={handleHelp}
+        />
       </Container>
     </View>
   );

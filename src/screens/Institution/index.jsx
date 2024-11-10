@@ -11,22 +11,9 @@ import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import api from "../../../axiosConfig";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { getSavedLanguage } from "../../hooks/useSavedLanguage";
 
 export function Institution() {
   const [language, setLanguage] = useState("pt");
-  useEffect(() => {
-    const fetchLanguage = async () => {
-      const savedLanguage = await getSavedLanguage();
-      setLanguage(savedLanguage);
-    };
-
-    fetchLanguage();
-  }, []);
-
-  const getCategory = (item) => item.Category[`category_${language}`];
-  const getDescription = (item) =>
-    item.InstitutionDescription[`description_${language}`];
 
   const [categories, setCategories] = useState([]);
   const [categoryId, setCategoryId] = useState(0);
@@ -41,6 +28,9 @@ export function Institution() {
   const { t, i18n } = useTranslation();
   const navigation = useNavigation();
 
+  const getCategory = (item) => item.Category[`category_${language}`];
+  const getDescription = (item) =>
+    item.InstitutionDescription[`description_${language}`];
   async function handleInstitutionDetails(id) {
     try {
       await AsyncStorage.setItem("institutionId", id.toString());
@@ -49,6 +39,14 @@ export function Institution() {
       console.error("Erro ao salvar o Institution ID:", error);
     }
   }
+  useEffect(() => {
+    const fetchLanguage = async () => {
+      const savedLanguage = await AsyncStorage.getItem("language");
+      setLanguage(savedLanguage);
+    };
+
+    fetchLanguage();
+  }, []);
 
   useEffect(() => {
     const fetchInstitutions = async () => {
@@ -56,7 +54,7 @@ export function Institution() {
         setLoading(true);
         const token = await AsyncStorage.getItem("token");
         if (!token) {
-          navigation.navigate("login")
+          navigation.navigate("login");
         }
         const responseCategory = await api.get(
           `/institutions/category/${categoryId}`

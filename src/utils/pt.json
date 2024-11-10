@@ -50,7 +50,12 @@
     "Assunto": "Assunto",
     "Mensagem": "Mensagem",
     "Enviar": "Enviar",
-    "Digite Aqui": "Digite Aqui",
+
+    "Digite seu nome": "Digite seu nome",
+    "Digite seu email": "Digite seu email",
+    "Digite seu telefone": "Digite seu telefone",
+    "Digite o assunto da mensagem": "Digite o assunto da mensagem",
+    "Digite a mensagem": "Digite a mensagem",
     
     "Nome é obrigatório": "Nome é obrigatório",
     "Email inválido": "Email inválido",

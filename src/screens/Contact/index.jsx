@@ -14,8 +14,6 @@ import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-
-
 export function Contact() {
   const { t, i18n } = useTranslation();
   const navigation = useNavigation();
@@ -65,7 +63,6 @@ export function Contact() {
     }
   };
 
-
   return (
     <View style={{ flex: 1, backgroundColor: theme.Colors.White }}>
       <Header showBackButton />
@@ -88,7 +85,7 @@ export function Contact() {
             name="name"
             render={({ field: { onChange, onBlur, value } }) => (
               <CommonInput
-                placeholder={t("Digite aqui")}
+                placeholder={t("Digite seu nome")}
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
@@ -108,7 +105,7 @@ export function Contact() {
             name="email"
             render={({ field: { onChange, onBlur, value } }) => (
               <CommonInput
-                placeholder={t("Digite aqui")}
+                placeholder={t("Digite seu e-mail")}
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
@@ -129,7 +126,7 @@ export function Contact() {
             name="phone"
             render={({ field: { onChange, onBlur, value } }) => (
               <CommonInput
-                placeholder={t("Digite aqui")}
+                placeholder={t("Digite seu telefone")}
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
@@ -150,7 +147,7 @@ export function Contact() {
             name="subject"
             render={({ field: { onChange, onBlur, value } }) => (
               <CommonInput
-                placeholder={t("Digite aqui")}
+                placeholder={t("Digite o assunto da mensagem")}
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
@@ -170,7 +167,7 @@ export function Contact() {
             name="message"
             render={({ field: { onChange, onBlur, value } }) => (
               <MessageInput
-                placeholder={t("Digite aqui")}
+                placeholder={t("Digite a mensagem")}
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}

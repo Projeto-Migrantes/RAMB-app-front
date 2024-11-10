@@ -1,11 +1,10 @@
 import { Header } from "@components/Header";
-import { Container, Title, TypeWriterStyled } from "./styles";
-import { Button } from "@components/Button";
+import { Container, TypeWriterStyled } from "./styles";
 import { ButtonLanguage } from "@components/ButtonLanguage";
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { View } from "react-native";
 import theme from "@theme/index";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import FlagBrazil from "@assets/BrazilFlag.svg";
 import FlagSpain from "@assets/SpainFlag.svg";
 import FlagUsa from "@assets/UsaFlag.svg";
@@ -14,10 +13,16 @@ import i18n from "../../utils/i18n";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export function ChangeLanguage() {
-  const [language, setLanguage] = useState("pt");
-  const [activeButton, setActiveButton] = useState("pt"); // mudar para o idioma selecionado
+  const [language, setLanguage] = useState("");
+  const [token, setToken] = useState(null);
+  const [activeButton, setActiveButton] = useState("");
   const navigation = useNavigation();
-
+  const loadToken = async () => {
+    const token = await AsyncStorage.getItem("token");
+    if (token) {
+      setToken(token);
+    }
+  };
   useEffect(() => {
     const loadLanguage = async () => {
       const savedLanguage = await AsyncStorage.getItem("language");
@@ -30,12 +35,22 @@ export function ChangeLanguage() {
     loadLanguage();
   }, []);
 
+  useFocusEffect(
+    React.useCallback(() => {
+      loadToken();
+    }, [])
+  );
+
   const ChangeLanguage = async (value) => {
     setActiveButton(value);
     setLanguage(value);
     i18n.changeLanguage(value);
     await AsyncStorage.setItem("language", value);
-    navigation.navigate("home");
+    if (token) {
+      navigation.navigate("home");
+    } else {
+      navigation.navigate("login");
+    }
   };
 
   const texts = [

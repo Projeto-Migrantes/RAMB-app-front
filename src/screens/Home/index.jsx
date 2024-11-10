@@ -1,7 +1,7 @@
 import { Header } from "@components/Header";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import theme from "@theme/index";
-import { FlatList, Linking, View } from "react-native";
+import { BackHandler, FlatList, Linking, View } from "react-native";
 import { Container, Content } from "./styles";
 import { TitleWithDescription } from "@components/TitleWithDescription";
 
@@ -14,19 +14,18 @@ import { useTranslation } from "react-i18next";
 import "@utils/i18n";
 import React, { useEffect, useState } from "react";
 import api from "../../../axiosConfig";
-import { getSavedLanguage } from "../../hooks/useSavedLanguage";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export function Home() {
   const navigation = useNavigation();
   const { t, i18n } = useTranslation();
-  const [pdfUrl, setPdfUrl] = useState('');
+  const [pdfUrl, setPdfUrl] = useState("");
 
   const [language, setLanguage] = useState("pt");
 
   const initialize = async () => {
     try {
-      const savedLanguage = await AsyncStorage.getItem("language") || await getSavedLanguage();
+      const savedLanguage = await AsyncStorage.getItem("language");
       if (savedLanguage) {
         setLanguage(savedLanguage);
         i18n.changeLanguage(savedLanguage);
@@ -35,13 +34,22 @@ export function Home() {
       }
     } catch (error) {
       alert("Aconteceu um erro, tente novamente", error);
-      setPdfUrl('');
+      setPdfUrl("");
     }
   };
 
   useFocusEffect(
     React.useCallback(() => {
       initialize();
+      const onBackPress = () => {
+        return true; // Retornar true para desabilitar o botão de voltar
+      };
+
+      BackHandler.addEventListener("hardwareBackPress", onBackPress);
+
+      return () => {
+        BackHandler.removeEventListener("hardwareBackPress", onBackPress);
+      };
     }, [])
   );
 
@@ -50,13 +58,13 @@ export function Home() {
       try {
         const token = await AsyncStorage.getItem("token");
         if (!token) {
-          navigation.navigate("login")
+          navigation.navigate("login");
         }
         const response = await api.get(`/pdfs/${language}`);
         setPdfUrl(response.data.url);
       } catch (error) {
         alert("Aconteceu um erro, tente novamente", error);
-        setPdfUrl('');
+        setPdfUrl("");
       }
     };
 
