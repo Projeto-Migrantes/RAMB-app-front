@@ -1,11 +1,11 @@
 {
   "expo": {
     "name": "RAMB",
-    "slug": "RAMB",
-    "version": "1.0.2",
+    "slug": "Mhelp-app-front",
+    "version": "1.0.4",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
-    "icon": "./assets/icon.svg",
+    "icon": "./assets/logoBackground.png",
     "splash": {
       "image": "./assets/logoBackground.png",
       "resizeMode": "contain",
@@ -15,7 +15,7 @@
       "supportsTablet": true
     },
     "android": {
-      "versionCode": 2,
+      "versionCode": 4,
       "adaptiveIcon": {
         "backgroundColor": "#ffffff"
       },
