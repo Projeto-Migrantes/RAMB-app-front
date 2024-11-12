@@ -1,3 +1,4 @@
+import { TouchableOpacity } from "react-native";
 import styled, { css } from "styled-components/native";
 
 export const TitleUnderLine = styled.View`
@@ -22,7 +23,7 @@ export const Underline = styled.View`
   border-color:${({ theme }) => theme.Colors.Purple};
 `;
 
-export const Card = styled.View`
+export const Card = styled(TouchableOpacity)`
   align-items: center;
   justify-content: center;
   width: 100%;

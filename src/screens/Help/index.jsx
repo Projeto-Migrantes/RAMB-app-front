@@ -25,6 +25,8 @@ export function Help() {
               "R. Portão da Piedade, 155 - Dois de Julho, Salvador - BA, 40070-045"
             }
             descriptionPhone={"(71) 0 0000-0000"}
+            linkLocation={"https://maps.app.goo.gl/BriTHVfyRZkivL1u6"}
+            linkPhone={"(71) 9 0000-0000"}
           />
           <Post
             title={"Posto Salvador Norte"}
@@ -32,6 +34,8 @@ export function Help() {
               "R. Portão da Piedade, 155 - Dois de Julho, Salvador - BA, 40070-045"
             }
             descriptionPhone={"(71) 0 0000-0000"}
+            linkLocation={"https://maps.app.goo.gl/BriTHVfyRZkivL1u6"}
+            linkPhone={"(71) 9 0000-0000"}
           />
         </Container>
       </ScrollView>

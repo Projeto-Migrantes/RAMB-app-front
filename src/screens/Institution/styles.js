@@ -22,5 +22,6 @@ export const LoadingIndicator = styled.ActivityIndicator.attrs(({ theme }) => ({
   color: theme.Colors.Blue,
 }))`
   width: 500px;
+  flex: 1;
   height: 130px;
 `;

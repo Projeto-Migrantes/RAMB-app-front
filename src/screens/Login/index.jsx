@@ -83,7 +83,7 @@ export function Login() {
           icon={<Fontisto name="email" size={16} color={theme.Colors.Purple} />}
           keyboardType="email-address"
           value={email}
-          onChangeText={setEmail}
+          onChangeText={(text) => setEmail(text.toLowerCase())}
         />
         <InputLogin
           placeholder={t("Digite sua Senha")}

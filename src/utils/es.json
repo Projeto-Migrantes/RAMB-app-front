@@ -66,6 +66,10 @@
     "Mensagem é obrigatória": "Mensaje es obligatorio",
     "Erro ao realizar login. Por favor, tente novamente." : "Error al iniciar sesión. Por favor, inténtelo de nuevo.",
     "Mudar Idioma": "Cambiar Idioma",
-    "Nenhuma instituição encontrada.": "No se encontraron instituciones."
+    "Nenhuma instituição encontrada.": "No se encontraron instituciones.",
+    "Formulário Enviado com sucesso!" : "¡Formulario enviado con éxito!",
+    "Erro ao tentar enviar formulário!": "Error al intentar enviar el formulario!",
+    "Aconteceu um erro, tente novamente": "Ocurrió un error, inténtalo de nuevo",
+    "Nenhuma instituição encontrada": "No se encontraron instituciones"
   }
 }

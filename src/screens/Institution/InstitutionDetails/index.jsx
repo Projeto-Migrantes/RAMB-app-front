@@ -40,7 +40,7 @@ export function InstitutionDetails() {
 
         setInstitution(response.data.institution);
       } catch (error) {
-        alert("Aconteceu um erro, tente novamente", error);
+        alert(t("Aconteceu um erro, tente novamente"), error);
         navigation.navigate("institution");
       } finally {
         setLoading(false);

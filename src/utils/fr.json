@@ -68,6 +68,10 @@
     "Mensagem é obrigatória": "Le message est obligatoire",
     "Erro ao realizar login. Por favor, tente novamente." : "Erreur lors de la connexion. Veuillez réessayer.",
     "Mudar Idioma": "Changer de Langue",
-    "Nenhuma instituição encontrada.": "Aucune institution trouvée."
+    "Nenhuma instituição encontrada.": "Aucune institution trouvée.",
+    "Formulário Enviado com sucesso!" : "Formulaire envoyé avec succès!",
+    "Erro ao tentar enviar formulário!": "Erreur lors de l'envoi du formulaire!",
+    "Aconteceu um erro, tente novamente": "Une erreur s'est produite, veuillez réessayer",
+    "Nenhuma instituição encontrada": "Aucune institution trouvée"
   }
 }

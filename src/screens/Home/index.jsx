@@ -33,7 +33,7 @@ export function Home() {
         setPdfUrl(response.data.url);
       }
     } catch (error) {
-      alert("Aconteceu um erro, tente novamente", error);
+      alert(t("Aconteceu um erro, tente novamente"), error);
       setPdfUrl("");
     }
   };
@@ -63,7 +63,7 @@ export function Home() {
         const response = await api.get(`/pdfs/${language}`);
         setPdfUrl(response.data.url);
       } catch (error) {
-        alert("Aconteceu um erro, tente novamente", error);
+        alert(t("Aconteceu um erro, tente novamente"), error);
         setPdfUrl("");
       }
     };

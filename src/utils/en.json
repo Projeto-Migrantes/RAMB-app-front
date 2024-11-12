@@ -65,6 +65,10 @@
     "Mensagem é obrigatória": "Message is required",
     "Erro ao realizar login. Por favor, tente novamente." : "Error logging in. Please try again.",
     "Mudar Idioma": "Change Language",
-    "Nenhuma instituição encontrada.": "No institution found."
+    "Nenhuma instituição encontrada.": "No institution found.",
+    "Formulário Enviado com sucesso!" : "Form Sent Successfully!",
+    "Erro ao tentar enviar formulário!": "Error sending form!",
+    "Aconteceu um erro, tente novamente": "An error occurred, try again",
+    "Nenhuma instituição encontrada": "No institution found"
   }
 }

@@ -63,12 +63,12 @@ export function Institution() {
         setErrorMessage("");
       } catch (error) {
         if (error.response && error.response.status === 404) {
-          setErrorMessage("Nenhuma instituição encontrada");
+          setErrorMessage(t("Nenhuma instituição encontrada"));
         } else {
           if (loading) {
             return;
           }
-          setErrorMessage("Erro ao buscar instituições");
+          setErrorMessage(t("Aconteceu um erro, tente novamente"));
         }
         setInstitutionsCategory([]);
         navigation.navigate("home");
@@ -83,7 +83,7 @@ export function Institution() {
         const response = await api.get("/categories");
         setCategories(response.data.categories);
       } catch (error) {
-        alert("Erro ao buscar categorias: ", error);
+        alert(t("Aconteceu um erro, tente novamente"), error);
         setLoading(false);
       }
     };
