@@ -25,7 +25,7 @@ export function InstitutionDetails() {
 
   const [institution, setInstitution] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [language, setLanguage] = useState("pt");
+  const [language, setLanguage] = useState("");
 
   useEffect(() => {
     const fetchInstitutionDetails = async () => {
@@ -54,7 +54,6 @@ export function InstitutionDetails() {
     fetchLanguage();
     fetchInstitutionDetails();
   }, []);
-
   return (
     <View style={{ flex: 1, backgroundColor: theme.Colors.White }}>
       <Header showBackButton />
@@ -158,18 +157,20 @@ export function InstitutionDetails() {
                       : institution.main_language
                   }
                 />
-                <BaseLink
-                  variant="site"
-                  title={t("Site")}
-                  description={institution.site ? institution.site : ""}
-                />
-                <BaseLink
-                  variant="instagram"
-                  title="Instagram"
-                  description={
-                    institution.instagram ? institution.instagram : ""
-                  }
-                />
+                {institution.site && (
+                  <BaseLink
+                    variant="site"
+                    title={t("Site")}
+                    description={institution.site}
+                  />
+                )}
+                {institution.instagram && (
+                  <BaseLink
+                    variant="instagram"
+                    title="Instagram"
+                    description={institution.instagram}
+                  />
+                )}
               </Informartion>
             </>
           )}

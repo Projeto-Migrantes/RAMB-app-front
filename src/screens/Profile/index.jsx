@@ -91,27 +91,45 @@ export function Profile() {
               />
               <UserDetails
                 title={t("Endereço")}
-                info={`${profile?.Address?.street}, nº${profile?.address_number}, ${profile?.address_complement}, ${profile?.Address?.neighborhood}, ${profile?.Address?.city}, ${profile?.Address?.state}, ${profile?.Address?.cep}.`}
+                info={`${profile?.Address?.street}, nº${
+                  profile?.address_number
+                }${
+                  profile?.address_complement
+                    ? `, ${profile.address_complement}`
+                    : ""
+                }, ${profile?.Address?.neighborhood}, ${
+                  profile?.Address?.city
+                }, ${profile?.Address?.state}, ${profile?.Address?.cep}.`}
               />
               <UserDetails
                 title={t("Documento De Identificação")}
                 info={`${profile?.MigrantDocument?.document_type} - ${profile?.MigrantDocument?.document_identification}`}
               />
-              <UserDetails
-                title={t("Nome Social")}
-                info={profile.social_name}
-              />
+              {profile.social_name && (
+                <UserDetails
+                  title={t("Nome Social")}
+                  info={profile.social_name}
+                />
+              )}
               <UserDetails title={t("Telefone")} info={profile.phone} />
               <UserDetails title={t("Gênero")} info={profile.gender} />
-              <UserDetails
-                title={t("Status Migratório")}
-                info={profile.status_migratory}
-              />
+
+              {profile.status_migratory && (
+                <UserDetails
+                  title={t("Status Migratório")}
+                  info={profile.status_migratory}
+                />
+              )}
               <UserDetails title="Estado Civil" info={profile.marital_status} />
-              <UserDetails
-                title={t("Escolaridade")}
-                info={profile.education_level}
-              />
+              {
+                profile.education_level && (
+                  <UserDetails
+                    title={t("Escolaridade")}
+                    info={profile.education_level}
+                  />
+
+                )
+              }
               <UserDetails
                 title={t("Motivo da Migração")}
                 info={profile.migrant_reason}
