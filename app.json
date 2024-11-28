@@ -9,7 +9,7 @@
     "splash": {
       "image": "./src/assets/logoBackground.png",
       "resizeMode": "contain",
-      "backgroundColor": "#00A6EB"
+      "backgroundColor": "#0116B9"
     },
     "ios": {
       "supportsTablet": true
@@ -17,7 +17,7 @@
     "android": {
       "versionCode": 7,
       "adaptiveIcon": {
-        "backgroundColor": "#00A6EB"
+        "backgroundColor": "#0116B9"
       },
       "package": "ramb.app"
     },
