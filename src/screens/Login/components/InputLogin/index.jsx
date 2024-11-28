@@ -1,5 +1,5 @@
 import { TouchableOpacity } from "react-native";
-import { SearchContainer, Input, Test } from "./styles";
+import { SearchContainer, Input, Content } from "./styles";
 import { Feather } from "@expo/vector-icons";
 import { useState } from "react";
 import theme from "@theme";
@@ -15,15 +15,15 @@ export function InputLogin({ icon, password, ...props }) {
       {icon}
       <Input {...props} secureTextEntry={password && !isPasswordVisible} />
       {password && (
-        <Test>
+        <Content>
           <TouchableOpacity onPress={togglePasswordVisibility}>
             <Feather
               name={isPasswordVisible ? "eye" : "eye-off"}
               size={20}
-              color={theme.Colors.Purple}
+              color={theme.Colors.Blue_500}
             />
           </TouchableOpacity>
-        </Test>
+        </Content>
       )}
     </SearchContainer>
   );

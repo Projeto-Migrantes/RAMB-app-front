@@ -95,12 +95,12 @@ export function Home() {
   const MenuItens = [
     {
       id: 1,
-      title: `${t("Instituições de Apoio")}`,
+      title: `${t("Instituições")}`,
       icon: (
         <Ionicons
           name="business-outline"
           size={30}
-          color={theme.Colors.Purple}
+          color={theme.Colors.Orange}
         />
       ),
       function: handleInstitution,
@@ -108,20 +108,20 @@ export function Home() {
     {
       id: 2,
       title: `${t("Manual Migrante")}`,
-      icon: <AntDesign name="book" size={30} color={theme.Colors.Purple} />,
+      icon: <AntDesign name="book" size={30} color={theme.Colors.Orange} />,
       function: handleLink,
     },
     {
       id: 3,
       title: `${t("Entre em Contato")}`,
-      icon: <AntDesign name="contacts" size={30} color={theme.Colors.Purple} />,
+      icon: <AntDesign name="contacts" size={30} color={theme.Colors.Orange} />,
       function: handleContact,
     },
     {
       id: 4,
       title: `${t("Postos")}`,
       icon: (
-        <FontAwesome5 name="building" size={30} color={theme.Colors.Purple} />
+        <FontAwesome5 name="building" size={30} color={theme.Colors.Orange} />
       ),
       function: handleHelp,
     },
@@ -129,14 +129,14 @@ export function Home() {
       id: 5,
       title: `${t("Idioma")}`,
       icon: (
-        <MaterialIcons name="translate" size={30} color={theme.Colors.Purple} />
+        <MaterialIcons name="translate" size={30} color={theme.Colors.Orange} />
       ),
       function: handleLanguage,
     },
     {
       id: 6,
       title: `${t("Perfil")}`,
-      icon: <AntDesign name="contacts" size={30} color={theme.Colors.Purple} />,
+      icon: <AntDesign name="contacts" size={30} color={theme.Colors.Orange} />,
       function: handleProfile,
     },
   ];

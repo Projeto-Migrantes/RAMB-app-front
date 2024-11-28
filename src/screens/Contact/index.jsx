@@ -69,14 +69,15 @@ export function Contact() {
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <Container>
           <TitleWithIcon
-            title={t("Entre em Contato")}
+            title={t("Entre em Contato com o Aplicativo")}
             icon={
               <AntDesign
                 name="contacts"
-                size={26}
-                color={theme.Colors.Purple}
+                size={40}
+                color={theme.Colors.Orange}
               />
             }
+            variant="secondary"
           />
 
           <Label>{t("Nome")}</Label>

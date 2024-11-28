@@ -8,7 +8,7 @@ export const SearchContainer = styled.View`
   flex-direction: row;
   align-items: center;
   border-width: 1px;
-  border-color: ${({ theme }) => theme.Colors.Blue};
+  border-color: ${({ theme }) => theme.Colors.Blue_300};
   border-radius: 999px;
   padding: 5px 20px;
 `;

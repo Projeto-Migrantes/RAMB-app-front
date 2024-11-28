@@ -12,6 +12,6 @@ export const ForgotPassword = styled.Text`
   ${({ theme }) => css`
     font-family: ${theme.Font_Family.Regular};
     font-size: ${theme.Font_Size.MD}px;
-    color: ${theme.Colors.Blue};
+    color: ${theme.Colors.Blue_300};
   `};
 `

@@ -12,10 +12,10 @@ export function Help() {
   return (
     <View style={{ flex: 1, backgroundColor: theme.Colors.White }}>
       <Header showBackButton />
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+      <ScrollView contentContainerStyle={{ flexGrow: 1}}>
         <TitleWithDescription
-          title={t("Precisa de Ajuda?")}
-          description={t("Entre em contato com um dos postos de atendimento")}
+          title={t("Precisa de ajuda com o Aplicativo?")}
+          description={t("Dirija-se a um dos postos de atendimento presencial")}
         />
 
         <Container>

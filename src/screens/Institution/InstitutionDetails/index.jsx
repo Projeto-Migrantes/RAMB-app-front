@@ -63,7 +63,7 @@ export function InstitutionDetails() {
           <Ionicons
             name="business-sharp"
             size={26}
-            color={theme.Colors.Purple}
+            color={theme.Colors.Orange}
           />
         }
       />

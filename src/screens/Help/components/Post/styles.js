@@ -11,7 +11,7 @@ export const Title = styled.Text`
   ${({ theme }) => css`
     font-family: ${theme.Font_Family.ExtraBold};
     font-size: ${theme.Font_Size.LG}px;
-    color: ${theme.Colors.Purple};
+    color: ${theme.Colors.Blue_500};
   `};
   text-align: center;
 `;
@@ -20,7 +20,7 @@ export const Underline = styled.View`
   border-width: 1px;
   border-radius: 20px;
   width: 36px;
-  border-color:${({ theme }) => theme.Colors.Purple};
+  border-color:${({ theme }) => theme.Colors.Blue_500};
 `;
 
 export const Card = styled(TouchableOpacity)`
@@ -37,7 +37,7 @@ export const TitleCard = styled.Text`
   ${({ theme }) => css`
     font-family: ${theme.Font_Family.Bold};
     font-size: ${theme.Font_Size.SM}px;
-    color: ${theme.Colors.Blue};
+    color: ${theme.Colors.Blue_700};
   `};
   text-align: center;
 `;

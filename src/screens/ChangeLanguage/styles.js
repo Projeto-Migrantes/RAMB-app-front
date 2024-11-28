@@ -19,7 +19,7 @@ export const TypeWriterStyled = styled(TypeWriter)`
   ${({ theme }) => css`
     font-family: ${theme.Font_Family.ExtraBold};
     font-size: 25px;
-    color: ${theme.Colors.Purple};
+    color: ${theme.Colors.Blue_500};
   `};
   text-align: center;
 `;

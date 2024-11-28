@@ -35,14 +35,14 @@ export function Post({ title, descriptionLocation, descriptionPhone, linkLocatio
         <SimpleLineIcons
           name="location-pin"
           size={36}
-          color={theme.Colors.Blue}
+          color={theme.Colors.Orange}
         />
         <TitleCard>{t("Localização")}</TitleCard>
         <DescriptionCard>{descriptionLocation}</DescriptionCard>
       </Card>
 
       <Card onPress={handlePressPhone}>
-        <Feather name="phone" size={36} color={theme.Colors.Blue} />
+        <Feather name="phone" size={36} color={theme.Colors.Orange} />
         <TitleCard>{t("Telefone")}</TitleCard>
         <DescriptionCard>{descriptionPhone}</DescriptionCard>
       </Card>

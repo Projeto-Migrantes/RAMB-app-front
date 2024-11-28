@@ -12,14 +12,14 @@ export const Container = styled(TouchableOpacity).attrs({
   height: 50px;
   border-width: 1px;
   border-color: ${({ theme, isActive }) =>
-    isActive ? theme.Colors.Purple : theme.Colors.Blue};
+    isActive ? theme.Colors.Blue_500 : theme.Colors.Blue_500};
   background-color: ${({ theme, isActive }) =>
-    isActive ? theme.Colors.Purple : "transparent"};
+    isActive ? theme.Colors.Blue_500 : "transparent"};
 `;
 
 export const Title = styled.Text`
   font-size: ${({ theme }) => theme.Font_Size.LG}px;
-  color: ${({ theme, isActive }) => (isActive ? "#fff" : theme.Colors.Purple)};
+  color: ${({ theme, isActive }) => (isActive ? "#fff" : theme.Colors.Blue_500)};
   font-family: ${({ theme }) => theme.Font_Family.Bold};
   text-align: center;
 `;

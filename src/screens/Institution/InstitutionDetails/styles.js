@@ -21,7 +21,7 @@ export const TextCategory = styled.Text`
   ${({ theme }) => css`
     font-family: ${theme.Font_Family.Regular};
     font-size: ${theme.Font_Size.XS}px;
-    color: ${theme.Colors.Blue};
+    color: ${theme.Colors.Blue_500};
   `};
 `;
 
@@ -46,7 +46,7 @@ export const TextDescription = styled.Text`
 
 export const LoadingIndicator = styled.ActivityIndicator.attrs(({ theme }) => ({
   size: "large",
-  color: theme.Colors.Blue,
+  color: theme.Colors.Blue_700,
 }))`
   align-items: center;
   justify-content: flex-start;

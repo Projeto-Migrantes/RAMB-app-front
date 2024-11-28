@@ -17,7 +17,7 @@ export const TextTitle = styled.Text`
   ${({ theme }) => css`
     font-family: ${theme.Font_Family.Bold};
     font-size: ${theme.Font_Size.SM}px;
-    color: ${theme.Colors.Blue};
+    color: ${theme.Colors.Blue_500};
   `};
 `;
 
@@ -32,7 +32,7 @@ export const TextDescription = styled.Text`
 
 export const ButtonMenu = styled(TouchableOpacity)`
   flex-direction: row;
-  border: 1px solid ${({ theme }) => theme.Colors.Blue};
+  border: 1px solid ${({ theme }) => theme.Colors.Blue_500};
   border-radius: 999px;
   padding: 5px 15px;
   align-items: center;
@@ -44,6 +44,6 @@ export const TextMap = styled.Text`
   ${({ theme }) => css`
     font-family: ${theme.Font_Family.Regular};
     font-size: ${theme.Font_Size.SM}px;
-    color: ${theme.Colors.Blue};
+    color: ${theme.Colors.Blue_500};
   `};
 `;

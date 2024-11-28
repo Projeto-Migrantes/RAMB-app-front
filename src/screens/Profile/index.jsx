@@ -121,15 +121,12 @@ export function Profile() {
                 />
               )}
               <UserDetails title="Estado Civil" info={profile.marital_status} />
-              {
-                profile.education_level && (
-                  <UserDetails
-                    title={t("Escolaridade")}
-                    info={profile.education_level}
-                  />
-
-                )
-              }
+              {profile.education_level && (
+                <UserDetails
+                  title={t("Escolaridade")}
+                  info={profile.education_level}
+                />
+              )}
               <UserDetails
                 title={t("Motivo da Migração")}
                 info={profile.migrant_reason}

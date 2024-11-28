@@ -21,7 +21,7 @@ export const UserName = styled.Text`
   ${({ theme }) => css`
     font-family: ${theme.Font_Family.ExtraBold};
     font-size: ${theme.Font_Size.LG}px;
-    color: ${theme.Colors.Purple};
+    color: ${theme.Colors.Blue_500};
   `};
   margin-bottom: 16px;
 `;
@@ -34,14 +34,14 @@ export const EditOptionsText = styled.Text`
   ${({ theme }) => css`
     font-family: ${theme.Font_Family.Bold};
     font-size: ${theme.Font_Size.SM}px;
-    color: ${theme.Colors.Blue};
+    color: ${theme.Colors.Blue_300};
   `};
   text-align: center;
 `;
 
 export const LoadingIndicator = styled.ActivityIndicator.attrs(({ theme }) => ({
   size: "large",
-  color: theme.Colors.Blue,
+  color: theme.Colors.Blue_500,
 }))`
   width: 500px;
   height: 130px;
@@ -49,7 +49,7 @@ export const LoadingIndicator = styled.ActivityIndicator.attrs(({ theme }) => ({
 
 export const Icon = styled(Ionicons).attrs(({ theme }) => ({
   size: 130,
-  color: theme.Colors.Purple,
+  color: theme.Colors.Orange,
 }))`
   width: 130px;
   height: 130px;

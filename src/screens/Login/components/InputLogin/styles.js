@@ -7,7 +7,7 @@ export const SearchContainer = styled.View`
   gap: 10px;
   align-items: center;
   border-width: 1px;
-  border-color: ${({ theme }) => theme.Colors.Purple};
+  border-color: ${({ theme }) => theme.Colors.Blue_500};
   border-radius: 999px;
   padding: 10px 15px;
   position: relative;
@@ -24,7 +24,7 @@ export const Input = styled(TextInput)`
   `};
 `;
 
-export const Test = styled.View`
+export const Content = styled.View`
   position: absolute;
   right: 10px;
   top: 50%;

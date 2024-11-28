@@ -3,15 +3,17 @@
     "Use login e senha fornecidos pelo posto de atendimento.": "Utilisez le login et le mot de passe fournis par le poste de service.",
     "Entrar": "Se connecter",
     "Esqueci minha senha": "J'ai oublié mon mot de passe",
-    "Precisa de Ajuda?": "Besoin d'aide ?",
+    "Precisa de ajuda com o Aplicativo?": "Besoin d'aide avec l'application?",
     "Digite seu Email": "Entrez votre email",
     "Digite sua Senha": "Entrez votre mot de passe",
 
     "Seja bem vindo(a)!": "Bienvenue !",
     "Plataforma de Apoio ao Migrante na Bahia": "Plateforme de soutien aux migrants en Bahia",
     "Instituições de Apoio": "Institutions de soutien",
+    "Instituições": "Institutions",
     "Manual Migrante": "Manuel du migrant",
     "Entre em Contato": "Contactez-nous",
+    "Entre em Contato com o Aplicativo": "Contactez-nous avec l'application",
     "Postos": "Postes",
     "Idioma": "Langue",
     "Perfil": "Profil",
@@ -31,7 +33,7 @@
     
 
 
-    "Entre em contato com um dos postos de atendimento": "Contactez l'un des postes de service",
+    "Dirija-se a um dos postos de atendimento presencial": "Rendez-vous dans l'un des postes de service en personne",
     "Instituição": "Institution",
     "Restrição ou Requisito": "Restriction ou Exigence",
 

@@ -1,8 +1,8 @@
 import { Container, Title } from "./styles";
 
-export function TitleWithIcon({ icon, title }) {
+export function TitleWithIcon({ icon, title, variant = "primary" }) {
   return (
-    <Container>
+    <Container variant={variant}>
       {icon}
       <Title>{title}</Title>
     </Container>

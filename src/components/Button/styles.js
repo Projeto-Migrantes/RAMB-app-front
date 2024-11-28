@@ -11,7 +11,7 @@ export const Container = styled(TouchableOpacity)`
   background-color: ${({ variant, theme }) => {
     switch (variant) {
       case "primary":
-        return theme.Colors.Purple;
+        return theme.Colors.Orange;
       case "secondary":
         return theme.Colors.White;
       case "terciary":
@@ -23,9 +23,9 @@ export const Container = styled(TouchableOpacity)`
   border-color: ${({ variant, theme }) => {
     switch (variant) {
       case "primary":
-        return theme.Colors.Purple;
+        return theme.Colors.Orange;
       case "secondary":
-        return theme.Colors.Purple;
+        return theme.Colors.Blue_700;
       case "terciary":
         return theme.Colors.Red;
     }
@@ -39,7 +39,7 @@ export const Title = styled.Text`
       case "primary":
         return theme.Colors.White;
       case "secondary":
-        return theme.Colors.Purple;
+        return theme.Colors.Blue_700;
       case "terciary":
         return theme.Colors.Red;
     }

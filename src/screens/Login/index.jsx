@@ -80,14 +80,14 @@ export function Login() {
       <Container>
         <InputLogin
           placeholder={t("Digite seu Email")}
-          icon={<Fontisto name="email" size={16} color={theme.Colors.Purple} />}
+          icon={<Fontisto name="email" size={16} color={theme.Colors.Blue_700} />}
           keyboardType="email-address"
           value={email}
           onChangeText={(text) => setEmail(text.toLowerCase())}
         />
         <InputLogin
           placeholder={t("Digite sua Senha")}
-          icon={<Feather name="lock" size={16} color={theme.Colors.Purple} />}
+          icon={<Feather name="lock" size={16} color={theme.Colors.Blue_700} />}
           value={password}
           onChangeText={setPassword}
           password

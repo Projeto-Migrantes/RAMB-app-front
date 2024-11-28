@@ -20,19 +20,19 @@ import "@utils/i18n";
 import Maps from "@assets/maps.svg";
 
 const iconMap = {
-  hour: <AntDesign name="clockcircleo" size={20} color={theme.Colors.Blue} />,
-  instagram: <AntDesign name="instagram" size={20} color={theme.Colors.Blue} />,
-  email: <Fontisto name="email" size={20} color={theme.Colors.Blue} />,
-  phone: <Feather name="phone" size={20} color={theme.Colors.Blue} />,
-  language: <Ionicons name="language" size={20} color={theme.Colors.Blue} />,
-  site: <AntDesign name="earth" size={20} color={theme.Colors.Blue} />,
-  group: <Ionicons name="people-outline" size={20} color={theme.Colors.Blue} />,
+  hour: <AntDesign name="clockcircleo" size={20} color={theme.Colors.Orange} />,
+  instagram: <AntDesign name="instagram" size={20} color={theme.Colors.Orange} />,
+  email: <Fontisto name="email" size={20} color={theme.Colors.Orange} />,
+  phone: <Feather name="phone" size={20} color={theme.Colors.Orange} />,
+  language: <Ionicons name="language" size={20} color={theme.Colors.Orange} />,
+  site: <AntDesign name="earth" size={20} color={theme.Colors.Orange} />,
+  group: <Ionicons name="people-outline" size={20} color={theme.Colors.Orange} />,
   services: (
-    <AntDesign name="infocirlceo" size={20} color={theme.Colors.Blue} />
+    <AntDesign name="infocirlceo" size={20} color={theme.Colors.Orange} />
   ),
-  price: <FontAwesome name="money" size={20} color={theme.Colors.Blue} />,
+  price: <FontAwesome name="money" size={20} color={theme.Colors.Orange} />,
   location: (
-    <SimpleLineIcons name="location-pin" size={20} color={theme.Colors.Blue} />
+    <SimpleLineIcons name="location-pin" size={20} color={theme.Colors.Orange} />
   ),
 };
 
@@ -88,7 +88,7 @@ export function BaseLink({ variant, title, description, link }) {
           <TextDescription>{description}</TextDescription>
           <ButtonMenu onPress={() => Linking.openURL(link)}>
             <TextMap>{t("Ver no Mapa")}</TextMap>
-            <Maps name="map" width={20} height={20} color={theme.Colors.Blue} />
+            <Maps name="map" width={20} height={20} color={theme.Colors.Blue_300} />
           </ButtonMenu>
         </>
       ) : (

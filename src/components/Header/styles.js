@@ -6,7 +6,7 @@ import { Platform } from "react-native";
 const isIPhone = Platform.OS === "ios" && !Platform.isPad;
 
 export const Container = styled(SafeAreaView)`
-  background-color: ${({ theme }) => theme.Colors.Blue};
+  background-color: ${({ theme }) => theme.Colors.Blue_700};
   flex-direction: row;
   align-items: center;
   justify-content: ${({ showBackButton }) =>

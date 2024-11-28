@@ -28,7 +28,7 @@ export const CommonInput = styled(TextInput)`
   border-radius: 999px;
 
   ${({ theme }) => css`
-    border-color: ${theme.Colors.Blue};
+    border-color: ${theme.Colors.Blue_500};
     color: ${theme.Colors.Gray_700};
     background-color: ${theme.Colors.White};
     font-family: ${theme.Font_Family.Regular};

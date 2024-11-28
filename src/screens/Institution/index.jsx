@@ -167,7 +167,7 @@ export function Institution() {
           <Ionicons
             name="business-sharp"
             size={26}
-            color={theme.Colors.Purple}
+            color={theme.Colors.Orange}
           />
         }
       />
@@ -196,7 +196,7 @@ export function Institution() {
             borderRadius: 0,
           }}
           arrowIconStyle={{
-            tintColor: theme.Colors.Blue,
+            tintColor: theme.Colors.Blue_500,
           }}
           selectedItemLabelStyle={{
             fontFamily: theme.Font_Family.Bold,

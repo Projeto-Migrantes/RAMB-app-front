@@ -7,7 +7,7 @@ export const Container = styled(TouchableOpacity)`
   padding: 20px;
   border-radius: 12px;
   border-width: 1px;
-  border-color: ${({ theme }) => theme.Colors.Blue};
+  border-color: ${({ theme }) => theme.Colors.Blue_500};
   gap: 2px;
   justify-content: space-between;
 `;
@@ -16,7 +16,7 @@ export const TextCategory = styled.Text`
   ${({ theme }) => css`
     font-family: ${theme.Font_Family.Regular};
     font-size: ${theme.Font_Size.XS}px;
-    color: ${theme.Colors.Blue};
+    color: ${theme.Colors.Blue_500};
   `};
 `;
 
